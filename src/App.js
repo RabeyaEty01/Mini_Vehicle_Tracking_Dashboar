@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// routing
+import Routes from 'routes';
+
+// project imports
+import Locales from 'ui-component/Locales';
+import NavigationScroll from 'layout/NavigationScroll';
+import RTLLayout from 'ui-component/RTLLayout';
+import Snackbar from 'ui-component/extended/Snackbar';
+import Loader from 'ui-component/Loader';
+
+import ThemeCustomization from 'themes';
+import { dispatch } from 'store';
+import 'react-awesome-lightbox/build/style.css';
+// auth provider
+import { JWTProvider as AuthProvider } from 'contexts/JWTContext';
+import { getAuth } from 'api/auth';
+import BaseApi from 'api/BaseApi';
+// import { FirebaseProvider as AuthProvider } from 'contexts/FirebaseContext';
+// import { AWSCognitoProvider as AuthProvider } from 'contexts/AWSCognitoContext';
+// import { Auth0Provider as AuthProvider } from 'contexts/Auth0Context';
+
+// ==============================|| APP ||============================== //
+
+const App = () => {
+    // const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const { id, token } = getAuth();
+        if (id && token) {
+            BaseApi.init(id, token);
+        }
+    }, []);
+
+    // if (!loading) return <Loader />;
+
+    return (
+        <ThemeCustomization>
+            <RTLLayout>
+                <Locales>
+                    <NavigationScroll>
+                        <AuthProvider>
+                            <>
+                                <Routes />
+                                <Snackbar />
+                            </>
+                        </AuthProvider>
+                    </NavigationScroll>
+                </Locales>
+            </RTLLayout>
+        </ThemeCustomization>
+    );
+};
 
 export default App;
