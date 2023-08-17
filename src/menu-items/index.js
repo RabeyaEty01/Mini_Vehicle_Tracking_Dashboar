@@ -1,17 +1,11 @@
 import dashboard from './dashboard';
 import application from './application';
-import forms from './forms';
-import elements from './elements';
-import pages from './pages';
-import utilities from './utilities';
-import support from './support';
-import other from './other';
-import hasPermission from 'utils/adminPermission/hasPermission';
+import widgets from './widgets';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, application]
+    items: [dashboard, widgets, application]
 };
 
 export default menuItems;

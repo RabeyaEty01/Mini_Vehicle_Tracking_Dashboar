@@ -18,6 +18,7 @@ import { openDrawer } from 'store/slices/menu';
 
 // assets
 import { IconMenu2 } from '@tabler/icons';
+import { drawerWidth } from 'store/constant';
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -35,7 +36,7 @@ const Header = () => {
             {/* logo & toggler button */}
             <Box
                 sx={{
-                    width: 228,
+                    width: `calc(${drawerWidth}px - 32px)`,
                     display: 'flex',
                     [theme.breakpoints.down('md')]: {
                         width: 'auto'

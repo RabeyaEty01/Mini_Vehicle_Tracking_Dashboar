@@ -175,8 +175,13 @@ const NavCollapse = ({ menu, level, parentId }) => {
     const menuIcon = menu.icon ? (
         <Icon
             strokeWidth={1.5}
-            size={drawerOpen ? '20px' : '24px'}
-            style={{ color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary }}
+            size={drawerOpen ? (isSelected ? '26px' : '20px') : isSelected ? '26px' : '24px'}
+            style={{
+                background: isSelected ? theme.palette.background.paper : null,
+                borderRadius: `${borderRadius}px`,
+                padding: isSelected ? '0px 5px' : '0px',
+                color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary
+            }}
         />
     ) : (
         <FiberManualRecordIcon
@@ -214,7 +219,18 @@ const NavCollapse = ({ menu, level, parentId }) => {
                                 level === 1 &&
                                 theme.palette.mode !== 'dark' && {
                                     '&:hover': {
-                                        background: theme.palette.secondary.light
+                                        background: theme.palette.secondary.light,
+
+                                        '& .MuiListItemIcon-root': {
+                                            '& svg': {
+                                                width: '26px',
+                                                height: '26px',
+                                                background: theme.palette.background.paper,
+                                                borderRadius: `${borderRadius}px`,
+                                                padding: '0px 5px !important',
+                                                color: 'rgb(236, 64, 122) !important'
+                                            }
+                                        }
                                     },
                                     '&.Mui-selected': {
                                         background: theme.palette.secondary.light,
@@ -256,7 +272,15 @@ const NavCollapse = ({ menu, level, parentId }) => {
                                             justifyContent: 'center',
                                             '&:hover': {
                                                 bgcolor:
-                                                    theme.palette.mode === 'dark' ? theme.palette.secondary.main + 25 : 'secondary.light'
+                                                    theme.palette.mode === 'dark' ? theme.palette.secondary.main + 25 : 'secondary.light',
+                                                '& svg': {
+                                                    width: '26px',
+                                                    height: '26px',
+                                                    background: theme.palette.background.paper,
+                                                    borderRadius: `${borderRadius}px`,
+                                                    padding: '0px 5px !important',
+                                                    color: 'rgb(236, 64, 122) !important'
+                                                }
                                             },
                                             ...(isSelected && {
                                                 bgcolor:

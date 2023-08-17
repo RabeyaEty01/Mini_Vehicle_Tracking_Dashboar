@@ -132,22 +132,6 @@ const JWTLogin = ({ loginProp, ...others }) => {
                         )}
                     </FormControl>
 
-                    <Grid container alignItems="center" justifyContent="space-between">
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={checked}
-                                        onChange={(event) => setChecked(event.target.checked)}
-                                        name="checked"
-                                        color="primary"
-                                    />
-                                }
-                                label="Keep me logged in"
-                            />
-                        </Grid>
-                    </Grid>
-
                     {errors.submit && (
                         <Box sx={{ mt: 3 }}>
                             <FormHelperText error>{errors.submit}</FormHelperText>
@@ -155,7 +139,15 @@ const JWTLogin = ({ loginProp, ...others }) => {
                     )}
                     <Box sx={{ mt: 2, mb: 2 }}>
                         <AnimateButton>
-                            <Button color="secondary" disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained">
+                            <Button
+                                color="secondary"
+                                disableElevation
+                                disabled={isSubmitting}
+                                fullWidth
+                                size="large"
+                                type="submit"
+                                variant="contained"
+                            >
                                 Sign In
                             </Button>
                         </AnimateButton>
