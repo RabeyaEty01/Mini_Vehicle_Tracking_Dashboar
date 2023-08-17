@@ -24,7 +24,6 @@
     "bill": "Bill",
     "payment": "Payment",
     "debitNote": "Debit Note",
-
     "double-entry": "Double Entry",
     "chartOfAccounts": "Chart of Accounts",
     "journalAccount": "Journal Account",
@@ -94,6 +93,12 @@
     "add-pos": "Add POS",
     "pos": "POS",
     "print-barcode": "Print Barcode",
+
+    "quiz-system": "Quiz System Setup",
+    "quizes": "Quizes",
+    "quiz-create": "Quiz Create",
+    "quiz-update": "Quiz Update",
+    "quiz-report": "Quiz Report",
 
     "users": "Users",
     "social-profile": "Social Profile",

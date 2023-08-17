@@ -663,6 +663,55 @@ const application = {
                 }
             ]
         },
+
+        {
+            id: 'quiz-system',
+            title: <FormattedMessage id="quiz-system" />,
+            type: 'collapse',
+            icon: icons.IconUsers,
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ],
+
+            'quiz-create': 'Quiz Create',
+            'quiz-update': 'Quiz Update',
+            'quize-report': 'Quiz Report',
+            children: [
+                {
+                    id: 'quizes',
+                    title: <FormattedMessage id="quizes" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'quiz-create',
+                    title: <FormattedMessage id="quiz-create" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'quiz-update',
+                    title: <FormattedMessage id="quiz-update" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'quiz-report',
+                    title: <FormattedMessage id="quiz-report" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+               
+            ]
+        },
+
         {
             id: 'notice',
             title: <FormattedMessage id="notice" />,
