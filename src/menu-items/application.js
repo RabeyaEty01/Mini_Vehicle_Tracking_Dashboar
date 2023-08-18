@@ -3,19 +3,26 @@ import { FormattedMessage } from 'react-intl';
 
 // assets
 import {
+    IconAffiliate,
     IconApps,
-    IconUserCheck,
     IconBasket,
-    IconMessages,
     IconBellRinging,
+    IconBrandBlogger,
+    IconCalculator,
+    IconCalendar,
+    IconFileDollar,
+    IconLayersLinked,
     IconLayoutKanban,
     IconMail,
-    IconCalendar,
+    IconMessages,
     IconNfc,
-    IconFileDollar,
+    IconNote,
+    IconQuestionCircle,
+    IconSchool,
     IconShoppingCart,
-    IconUsers,
-    IconCalculator
+    IconUserCheck,
+    IconUserCircle,
+    IconUsers
 } from '@tabler/icons';
 import permissions from 'utils/adminPermission/permissions';
 
@@ -33,7 +40,14 @@ const icons = {
     IconFileDollar,
     IconShoppingCart,
     IconUsers,
-    IconCalculator
+    IconCalculator,
+    IconQuestionCircle,
+    IconUserCircle,
+    IconLayersLinked,
+    IconAffiliate,
+    IconNote,
+    IconBrandBlogger,
+    IconSchool
 };
 
 // ==============================|| APPLICATION MENU ITEMS ||============================== //
@@ -352,6 +366,57 @@ const application = {
                 }
             ]
         },
+
+        {
+            id: 'crm-system',
+            title: <FormattedMessage id="crm-system" />,
+            type: 'collapse',
+            icon: icons.IconLayersLinked,
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ],
+            children: [
+                {
+                    id: 'leads',
+                    title: <FormattedMessage id="leads" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'deals',
+                    title: <FormattedMessage id="deals" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'form-buidler',
+                    title: <FormattedMessage id="form-buidler" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'contract',
+                    title: <FormattedMessage id="contract" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'crm-system-set',
+                    title: <FormattedMessage id="crm-system-set" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                }
+            ]
+        },
+
         {
             id: 'accountingSystem',
             title: <FormattedMessage id="accountingSystem" />,
@@ -534,12 +599,11 @@ const application = {
                 }
             ]
         },
-
         {
-            id: 'userManagement',
-            title: <FormattedMessage id="userManagement" />,
+            id: 'school-system',
+            title: <FormattedMessage id="school-system" />,
             type: 'collapse',
-            icon: icons.IconUserCheck,
+            icon: icons.IconSchool,
             permission: [
                 permissions.customers.read,
                 permissions.customers.create,
@@ -548,11 +612,282 @@ const application = {
             ],
             children: [
                 {
-                    id: 'user',
-                    title: <FormattedMessage id="user" />,
+                    id: 'admission',
+                    title: <FormattedMessage id="admission" />,
                     type: 'item',
                     url: '/customer/customer-list',
                     breadcrumbs: true
+                },
+                {
+                    id: 'st-setup',
+                    title: <FormattedMessage id="st-setup" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'students',
+                            title: <FormattedMessage id="students" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'st-details',
+                            title: <FormattedMessage id="st-details" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'attendance',
+                            title: <FormattedMessage id="attendance" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'st-promotion',
+                            title: <FormattedMessage id="st-promotion" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'parents',
+                            title: <FormattedMessage id="parents" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'pt-details',
+                            title: <FormattedMessage id="pt-details" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'teachers-setup',
+                    title: <FormattedMessage id="teachers-setup" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'teachers',
+                            title: <FormattedMessage id="teachers" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 't-payment',
+                            title: <FormattedMessage id="t-payment" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 't-details',
+                            title: <FormattedMessage id="t-details" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'library',
+                    title: <FormattedMessage id="library" />,
+                    type: 'item',
+                    url: '/app/contact/c-card',
+                    breadcrumbs: false
+                },
+                {
+                    id: 'fees-collect',
+                    title: <FormattedMessage id="fees-collect" />,
+                    type: 'item',
+                    url: '/app/contact/c-card',
+                    breadcrumbs: false
+                },
+                {
+                    id: 'class-setup',
+                    title: <FormattedMessage id="class-setup" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'classes',
+                            title: <FormattedMessage id="classes" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'class-routine',
+                            title: <FormattedMessage id="class-routine" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'subject',
+                            title: <FormattedMessage id="subject" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'exam',
+                    title: <FormattedMessage id="exam" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'classes',
+                            title: <FormattedMessage id="classes" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'ex-sch',
+                            title: <FormattedMessage id="ex-sch" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'ex-grades',
+                            title: <FormattedMessage id="ex-grades" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'transport',
+                    title: <FormattedMessage id="transport" />,
+                    type: 'item',
+                    url: '/app/contact/c-card',
+                    breadcrumbs: false
+                },
+                {
+                    id: 'hostel',
+                    title: <FormattedMessage id="hostel" />,
+                    type: 'item',
+                    url: '/app/contact/c-card',
+                    breadcrumbs: false
+                }
+            ]
+        },
+
+        {
+            id: 'userManagement',
+            title: <FormattedMessage id="userManagement" />,
+            type: 'collapse',
+            icon: icons.IconUserCheck,
+            children: [
+                {
+                    id: 'account-profile',
+                    title: <FormattedMessage id="account-profile" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'profile1',
+                            title: (
+                                <>
+                                    <FormattedMessage id="profile" /> 01
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/account-profile/profile1'
+                        },
+                        {
+                            id: 'profile2',
+                            title: (
+                                <>
+                                    <FormattedMessage id="profile" /> 02
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/account-profile/profile2'
+                        },
+                        {
+                            id: 'profile3',
+                            title: (
+                                <>
+                                    <FormattedMessage id="profile" /> 03
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/account-profile/profile3'
+                        }
+                    ]
+                },
+                {
+                    id: 'user-card',
+                    title: <FormattedMessage id="cards" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'card1',
+                            title: (
+                                <>
+                                    <FormattedMessage id="style" /> 01
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/card/card1'
+                        },
+                        {
+                            id: 'card2',
+                            title: (
+                                <>
+                                    <FormattedMessage id="style" /> 02
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/card/card2'
+                        },
+                        {
+                            id: 'card3',
+                            title: (
+                                <>
+                                    <FormattedMessage id="style" /> 03
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/card/card3'
+                        }
+                    ]
+                },
+                {
+                    id: 'user-list',
+                    title: <FormattedMessage id="list" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'list1',
+                            title: (
+                                <>
+                                    <FormattedMessage id="style" /> 01
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/list/list1'
+                        },
+                        {
+                            id: 'list2',
+                            title: (
+                                <>
+                                    <FormattedMessage id="style" /> 02
+                                </>
+                            ),
+                            type: 'item',
+                            url: '/user/list/list2'
+                        }
+                    ]
                 },
                 {
                     id: 'role',
@@ -567,9 +902,16 @@ const application = {
                     type: 'item',
                     url: '/app/contact/c-list',
                     breadcrumbs: true
+                },
+                {
+                    id: 'posts',
+                    title: <FormattedMessage id="social-profile" />,
+                    type: 'item',
+                    url: '/user/social-profile/posts'
                 }
             ]
         },
+
         {
             id: 'pr-system',
             title: <FormattedMessage id="pr-system" />,
@@ -665,10 +1007,81 @@ const application = {
         },
 
         {
+            id: 'project-system',
+            title: <FormattedMessage id="project-system" />,
+            type: 'collapse',
+            icon: icons.IconAffiliate,
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ],
+            children: [
+                {
+                    id: 'projects',
+                    title: <FormattedMessage id="projects" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'tasks',
+                    title: <FormattedMessage id="tasks" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'timesheet',
+                    title: <FormattedMessage id="timesheet" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'bug',
+                    title: <FormattedMessage id="bug" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'task-cal',
+                    title: <FormattedMessage id="task-cal" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'tracker',
+                    title: <FormattedMessage id="tracker" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'pr-report',
+                    title: <FormattedMessage id="pr-report" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                },
+
+                {
+                    id: 'pr-system-set',
+                    title: <FormattedMessage id="pr-system-set" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                }
+            ]
+        },
+        {
             id: 'quiz-system',
             title: <FormattedMessage id="quiz-system" />,
             type: 'collapse',
-            icon: icons.IconUsers,
+            icon: icons.IconQuestionCircle,
             permission: [
                 permissions.customers.read,
                 permissions.customers.create,
@@ -707,37 +1120,14 @@ const application = {
                     type: 'item',
                     url: '/customer/customer-list',
                     breadcrumbs: true
-                },
-               
+                }
             ]
-        },
-
-        {
-            id: 'notice',
-            title: <FormattedMessage id="notice" />,
-            type: 'item',
-            icon: icons.IconBellRinging,
-            url: '/promotions/promtions-lists',
-            permission: [
-                permissions.customers.read,
-                permissions.customers.create,
-                permissions.customers.delete,
-                permissions.customers.update
-            ]
-        },
-
-        {
-            id: 'mail',
-            title: <FormattedMessage id="mail" />,
-            type: 'item',
-            icon: icons.IconMail,
-            url: '/app/mail'
         },
         {
             id: 'customer',
             title: <FormattedMessage id="customer" />,
             type: 'collapse',
-            icon: icons.IconBasket,
+            icon: icons.IconUserCircle,
             children: [
                 {
                     id: 'customer-list',
@@ -781,35 +1171,6 @@ const application = {
                     breadcrumbs: false
                 }
             ]
-        },
-        {
-            id: 'chat',
-            title: <FormattedMessage id="chat" />,
-            type: 'item',
-            icon: icons.IconMessages,
-            url: '/app/chat'
-        },
-        {
-            id: 'kanban',
-            title: 'Kanban',
-            type: 'item',
-            icon: icons.IconLayoutKanban,
-            url: '/app/kanban/board'
-        },
-        {
-            id: 'mail',
-            title: <FormattedMessage id="mail" />,
-            type: 'item',
-            icon: icons.IconMail,
-            url: '/app/mail'
-        },
-        {
-            id: 'calendar',
-            title: <FormattedMessage id="calendar" />,
-            type: 'item',
-            url: '/app/calendar',
-            icon: icons.IconCalendar,
-            breadcrumbs: false
         },
         {
             id: 'contact',
@@ -866,6 +1227,88 @@ const application = {
                     url: '/e-commerce/checkout'
                 }
             ]
+        },
+        {
+            id: 'blog',
+            title: <FormattedMessage id="blog" />,
+            type: 'collapse',
+            icon: icons.IconBrandBlogger,
+            children: [
+                {
+                    id: 'blog-posts',
+                    title: <FormattedMessage id="blog-posts" />,
+                    type: 'item',
+                    url: '/app/contact/c-card',
+                    breadcrumbs: false
+                },
+                {
+                    id: 'blog-details',
+                    title: <FormattedMessage id="blog-details" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: false
+                }
+            ]
+        },
+
+        {
+            id: 'notice',
+            title: <FormattedMessage id="notice" />,
+            type: 'item',
+            icon: icons.IconBellRinging,
+            url: '/promotions/promtions-lists',
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ]
+        },
+
+        {
+            id: 'mail',
+            title: <FormattedMessage id="mail" />,
+            type: 'item',
+            icon: icons.IconMail,
+            url: '/app/mail'
+        },
+
+        {
+            id: 'notes',
+            title: <FormattedMessage id="notes" />,
+            type: 'item',
+            icon: icons.IconNote,
+            url: '/app/chat'
+        },
+
+        {
+            id: 'chat',
+            title: <FormattedMessage id="chat" />,
+            type: 'item',
+            icon: icons.IconMessages,
+            url: '/app/chat'
+        },
+        {
+            id: 'kanban',
+            title: 'Kanban',
+            type: 'item',
+            icon: icons.IconLayoutKanban,
+            url: '/app/kanban/board'
+        },
+        {
+            id: 'mail',
+            title: <FormattedMessage id="mail" />,
+            type: 'item',
+            icon: icons.IconMail,
+            url: '/app/mail'
+        },
+        {
+            id: 'calendar',
+            title: <FormattedMessage id="calendar" />,
+            type: 'item',
+            url: '/app/calendar',
+            icon: icons.IconCalendar,
+            breadcrumbs: false
         }
     ]
 };
