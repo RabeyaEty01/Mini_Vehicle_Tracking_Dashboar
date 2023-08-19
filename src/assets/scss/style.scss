@@ -9,6 +9,7 @@
 @import ' ~react-18-image-lightbox/style.css';
 @import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+
 // ==============================|| LIGHT BOX ||============================== //
 .slick-arrow:before {
     color: $grey500;
@@ -64,7 +65,7 @@
 }
 
 .rs-picker-menu {
-  z-index: 11111 !important;
+    z-index: 11111 !important;
 }
 // ==============================|| ANIMATION KEYFRAMES ||============================== //
 
@@ -194,4 +195,3 @@
 .ReactModal__Overlay {
     z-index: 99999 !important;
 }
-

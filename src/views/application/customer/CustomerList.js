@@ -1,35 +1,29 @@
-import PropTypes from 'prop-types';
 import * as React from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import { Avatar, Box, Button, Typography, CardHeader, IconButton, Fab } from '@mui/material';
+import { Avatar, Box, Button, IconButton, Tooltip, Typography } from '@mui/material';
 
 // project imports
 import { useDispatch, useSelector } from 'store';
 
 // assets
-import MaterialTable from '@material-table/core';
-import { useState } from 'react';
-import customersModule from 'store/slices/customersModule';
+import MaterialTable, { MTableToolbar } from '@material-table/core';
+import { FileCopy, FilterList, Print } from '@mui/icons-material';
+import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import Customers from 'repositories/Customers';
+import customersModule from 'store/slices/customersModule';
+import { openSnackbar } from 'store/slices/snackbar';
+import MainCard from 'ui-component/cards/MainCard';
+import Chip from 'ui-component/extended/Chip';
 import hasPermission from 'utils/adminPermission/hasPermission';
 import permissions from 'utils/adminPermission/permissions';
 import formatDate from 'utils/customFormates/formatDate';
-import Details from './Details';
 import BlockMessageDialog from './BlockMessageDialog';
-import Customers from 'repositories/Customers';
-import { openSnackbar } from 'store/slices/snackbar';
-import { Link } from 'react-router-dom';
-import Chip from 'ui-component/extended/Chip';
+import Details from './Details';
 
-const headerSX = {
-    '& .MuiCardHeader-action': { mr: 0 }
-};
 const CustomerList = () => {
-    const theme = useTheme();
     const dispatch = useDispatch();
     const tableRef = React.useRef(null);
     let modals = {};
@@ -87,10 +81,12 @@ const CustomerList = () => {
             );
         }
     }, []);
+
     return (
-        <>
+        <MainCard title="Order List" content={false}>
             <MaterialTable
                 tableRef={tableRef}
+                style={{ boxShadow: 'none' }}
                 columns={[
                     { title: 'ID', field: 'id' },
                     {
@@ -198,6 +194,30 @@ const CustomerList = () => {
                         render: (rowdata) => formatDate(rowdata.created_at)
                     }
                 ]}
+                components={{
+                    Toolbar: (toolbarProps) => (
+                        <Box display="flex" alignItems="center">
+                            <Box sx={{ textAlign: 'right', marginLeft: 'auto' }}>
+                                <Tooltip title="Copy">
+                                    <IconButton size="large">
+                                        <FileCopy />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Print">
+                                    <IconButton size="large">
+                                        <Print />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Filter">
+                                    <IconButton size="large">
+                                        <FilterList />
+                                    </IconButton>
+                                </Tooltip>
+                            </Box>
+                            <MTableToolbar {...toolbarProps} />
+                        </Box>
+                    )
+                }}
                 detailPanel={(rowData) => {
                     return <Details {...rowData} />;
                 }}
@@ -215,17 +235,8 @@ const CustomerList = () => {
                     return JSON.parse(JSON.stringify(res));
                 }}
                 isLoading={isLoading}
-                title={
-                    <CardHeader
-                        sx={headerSX}
-                        title={
-                            <Typography sx={{ fontWeight: 500 }} variant="h3">
-                                Customer List
-                            </Typography>
-                        }
-                    />
-                }
                 options={{
+                    showTitle: false,
                     pageSize: pageSize,
                     pageSizeOptions: [20, 50, 100],
                     draggable: false,
@@ -233,7 +244,7 @@ const CustomerList = () => {
                     debounceInterval: 400
                 }}
             />
-        </>
+        </MainCard>
     );
 };
 
