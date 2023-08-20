@@ -211,43 +211,43 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
             }
         },
 
-        MuiToolbar: {
-            styleOverrides: {
-                root: {
-                    '& .MuiFormControl-root': {
-                        padding: 0,
-                        background: outlinedFilled ? bgColor : 'transparent',
-                        borderRadius: `${borderRadius}px`,
-                        border: '1px solid',
-                        borderColor: mode === 'dark' ? theme.palette.text.primary + 28 : theme.palette.grey[400],
-                        '&:hover': {
-                            borderColor: theme.palette.primary.light
-                        },
-                        '& .MuiInputBase-root': {
-                            fontWeight: 500,
-                            outline: 0,
-                            background: outlinedFilled ? bgColor : 'transparent',
-                            padding: '6px 14px !important',
-                            borderRadius: `${borderRadius}px`,
-                            '&:before': {
-                                border: '0 !important'
-                            },
-                            '&:after': {
-                                border: '0 !important'
-                            },
-                            inputAdornedStart: {
-                                paddingLeft: 4
-                            }
-                        },
+        // MuiToolbar: {
+        //     styleOverrides: {
+        //         root: {
+        //             '& .MuiFormControl-root': {
+                       
+        //                 background: outlinedFilled ? bgColor : 'transparent',
+        //                 borderRadius: `${borderRadius}px`,
+        //                 border: '1px solid',
+        //                 borderColor: mode === 'dark' ? theme.palette.text.primary + 28 : theme.palette.grey[400],
+        //                 '&:hover': {
+        //                     borderColor: theme.palette.primary.light
+        //                 },
+        //                 '& .MuiInputBase-root': {
+        //                     fontWeight: 500,
+        //                     outline: 0,
+        //                     background: outlinedFilled ? bgColor : 'transparent',
+        //                     padding: '6px 0px !important',
+        //                     borderRadius: `${borderRadius}px`,
+        //                     '&:before': {
+        //                         border: '0 !important'
+        //                     },
+        //                     '&:after': {
+        //                         border: '0 !important'
+        //                     },
+        //                     inputAdornedStart: {
+        //                         paddingLeft: 4
+        //                     }
+        //                 },
 
-                        notchedOutline: {
-                            display: 'none',
-                            borderRadius: `${borderRadius}px`
-                        }
-                    }
-                }
-            }
-        },
+        //                 notchedOutline: {
+        //                     display: 'none',
+        //                     borderRadius: `${borderRadius}px`
+        //                 }
+        //             }
+        //         }
+        //     }
+        // },
 
         MuiAvatar: {
             styleOverrides: {

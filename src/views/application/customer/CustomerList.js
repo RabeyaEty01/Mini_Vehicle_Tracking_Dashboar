@@ -7,7 +7,7 @@ import { Avatar, Box, Button, IconButton, Tooltip, Typography } from '@mui/mater
 import { useDispatch, useSelector } from 'store';
 
 // assets
-import MaterialTable, { MTableToolbar } from '@material-table/core';
+import MaterialTable, { MTableAction, MTableToolbar } from '@material-table/core';
 import { FileCopy, FilterList, Print } from '@mui/icons-material';
 import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
@@ -87,7 +87,6 @@ const CustomerList = () => {
     return (
         <MainCard title="Order List" content={false}>
             <MaterialTable
-                sx={{ ...theme.typography.customInput }}
                 tableRef={tableRef}
                 style={{ boxShadow: 'none' }}
                 columns={[
@@ -197,29 +196,53 @@ const CustomerList = () => {
                         render: (rowdata) => formatDate(rowdata.created_at)
                     }
                 ]}
+                actions={[
+                    {
+                        isFreeAction: true
+                    }
+                ]}
                 components={{
-                    Toolbar: (toolbarProps) => (
-                        <Box display="flex" alignItems="center">
-                            <Box sx={{ textAlign: 'right', marginLeft: 'auto' }}>
-                                <Tooltip title="Copy">
-                                    <IconButton size="large">
-                                        <FileCopy />
-                                    </IconButton>
-                                </Tooltip>
-                                <Tooltip title="Print">
-                                    <IconButton size="large">
-                                        <Print />
-                                    </IconButton>
-                                </Tooltip>
-                                <Tooltip title="Filter">
-                                    <IconButton size="large">
-                                        <FilterList />
-                                    </IconButton>
-                                </Tooltip>
-                            </Box>
-                            <MTableToolbar {...toolbarProps} />
-                        </Box>
-                    )
+                    Action: (props) => {
+                        if (props.action.isFreeAction) {
+                            return (
+                                <Box display="flex" alignItems="center">
+                                    <Box sx={{ textAlign: 'left', marginLeft: 'auto' }}>
+                                        <Tooltip title="Copy">
+                                            <IconButton
+                                                onClick={(e) => {
+                                                    console.log('copy');
+                                                }}
+                                                size="large"
+                                            >
+                                                <FileCopy />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Print">
+                                            <IconButton
+                                                onClick={(e) => {
+                                                    console.log('print');
+                                                }}
+                                                size="large"
+                                            >
+                                                <Print />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Filter">
+                                            <IconButton
+                                                onClick={(e) => {
+                                                    console.log('filter');
+                                                }}
+                                                size="large"
+                                            >
+                                                <FilterList />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Box>
+                                </Box>
+                            );
+                        }
+                        return <MTableAction {...props} />;
+                    }
                 }}
                 detailPanel={(rowData) => {
                     return <Details {...rowData} />;
@@ -239,12 +262,14 @@ const CustomerList = () => {
                 }}
                 isLoading={isLoading}
                 options={{
+                    search: true,
                     showTitle: false,
                     pageSize: pageSize,
                     pageSizeOptions: [20, 50, 100],
                     draggable: false,
-                    actionsColumnIndex: -1,
-                    debounceInterval: 400
+                    debounceInterval: 400,
+                    toolbarButtonAlignment: 'left',
+                    exportButton: true
                 }}
             />
         </MainCard>
