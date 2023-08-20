@@ -22,8 +22,10 @@ import permissions from 'utils/adminPermission/permissions';
 import formatDate from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
+import { useTheme } from '@mui/styles';
 
 const CustomerList = () => {
+    const theme = useTheme();
     const dispatch = useDispatch();
     const tableRef = React.useRef(null);
     let modals = {};
@@ -85,6 +87,7 @@ const CustomerList = () => {
     return (
         <MainCard title="Order List" content={false}>
             <MaterialTable
+                sx={{ ...theme.typography.customInput }}
                 tableRef={tableRef}
                 style={{ boxShadow: 'none' }}
                 columns={[
