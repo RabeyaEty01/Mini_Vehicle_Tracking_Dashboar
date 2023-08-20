@@ -235,7 +235,6 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                             '&:after': {
                                 border: '0 !important'
                             },
-                            
                             inputAdornedStart: {
                                 paddingLeft: 4
                             }
