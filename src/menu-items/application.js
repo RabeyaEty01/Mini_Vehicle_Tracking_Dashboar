@@ -58,364 +58,364 @@ const application = {
     icon: icons.IconApps,
     type: 'group',
     children: [
-        // {
-        //     id: 'hrm-system',
-        //     title: <FormattedMessage id="hrm-system" />,
-        //     type: 'collapse',
-        //     icon: icons.IconUsers,
-        //     permission: [
-        //         permissions.customers.read,
-        //         permissions.customers.create,
-        //         permissions.customers.delete,
-        //         permissions.customers.update
-        //     ],
-        //     children: [
-        //         {
-        //             id: 'emp-set',
-        //             title: <FormattedMessage id="emp-set" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'pay-set',
-        //             title: <FormattedMessage id="pay-set" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 'sal-set',
-        //                     title: <FormattedMessage id="sal-set" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-card',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'pay-slip',
-        //                     title: <FormattedMessage id="pay-slip" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'leave-management',
-        //             title: <FormattedMessage id="leave-management" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 'manage-leave',
-        //                     title: <FormattedMessage id="manage-leave" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-card',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'attendance',
-        //                     title: <FormattedMessage id="attendance" />,
-        //                     type: 'collapse',
-        //                     children: [
-        //                         {
-        //                             id: 'a-mark',
-        //                             title: <FormattedMessage id="a-mark" />,
-        //                             type: 'item',
-        //                             url: '/app/contact/c-card',
-        //                             breadcrumbs: false
-        //                         },
-        //                         {
-        //                             id: 'b-bulk',
-        //                             title: <FormattedMessage id="b-bulk" />,
-        //                             type: 'item',
-        //                             url: '/app/contact/c-list',
-        //                             breadcrumbs: false
-        //                         }
-        //                     ]
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'performance-setup',
-        //             title: <FormattedMessage id="performance-setup" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 'indicator',
-        //                     title: <FormattedMessage id="indicator" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-card',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'appraisal',
-        //                     title: <FormattedMessage id="appraisal" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'goal-track',
-        //                     title: <FormattedMessage id="goal-track" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'training-set',
-        //             title: <FormattedMessage id="training-set" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 't-list',
-        //                     title: <FormattedMessage id="t-list" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-card',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'trainer',
-        //                     title: <FormattedMessage id="trainer" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'recruitment',
-        //             title: <FormattedMessage id="recruitment" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 'jobs',
-        //                     title: <FormattedMessage id="jobs" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-card',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'j-create',
-        //                     title: <FormattedMessage id="j-create" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'j-application',
-        //                     title: <FormattedMessage id="j-application" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'j-candidate',
-        //                     title: <FormattedMessage id="j-candidate" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'j-on-boarding',
-        //                     title: <FormattedMessage id="j-on-boarding" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'custom-que',
-        //                     title: <FormattedMessage id="custom-que" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'interview-sche',
-        //                     title: <FormattedMessage id="interview-sche" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 },
-        //                 {
-        //                     id: 'career',
-        //                     title: <FormattedMessage id="career" />,
-        //                     type: 'item',
-        //                     url: '/app/contact/c-list',
-        //                     breadcrumbs: false
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'hr-admin',
-        //             title: <FormattedMessage id="hr-admin" />,
-        //             type: 'collapse',
-        //             children: [
-        //                 {
-        //                     id: 'award',
-        //                     title: <FormattedMessage id="award" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'transfer',
-        //                     title: <FormattedMessage id="transfer" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'resignation',
-        //                     title: <FormattedMessage id="resignation" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'trip',
-        //                     title: <FormattedMessage id="trip" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'complaints',
-        //                     title: <FormattedMessage id="complaints" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'warning',
-        //                     title: <FormattedMessage id="warning" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'promotion',
-        //                     title: <FormattedMessage id="promotion" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'termination',
-        //                     title: <FormattedMessage id="termination" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'announcement',
-        //                     title: <FormattedMessage id="announcement" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 },
-        //                 {
-        //                     id: 'holidays',
-        //                     title: <FormattedMessage id="holidays" />,
-        //                     type: 'item',
-        //                     url: '/customer/customer-list',
-        //                     breadcrumbs: true
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             id: 'event-setup',
-        //             title: <FormattedMessage id="event-setup" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'meeting',
-        //             title: <FormattedMessage id="meeting" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'e-asset',
-        //             title: <FormattedMessage id="e-asset" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'doc-set',
-        //             title: <FormattedMessage id="doc-set" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'company-policy',
-        //             title: <FormattedMessage id="company-policy" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'hrm-system-setup',
-        //             title: <FormattedMessage id="hrm-system-setup" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         }
-        //     ]
-        // },
+        {
+            id: 'hrm-system',
+            title: <FormattedMessage id="hrm-system" />,
+            type: 'collapse',
+            icon: icons.IconUsers,
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ],
+            children: [
+                {
+                    id: 'emp-set',
+                    title: <FormattedMessage id="emp-set" />,
+                    type: 'item',
+                    url: '/hrm-system/employee-setup',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'pay-set',
+                    title: <FormattedMessage id="pay-set" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'sal-set',
+                            title: <FormattedMessage id="sal-set" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'pay-slip',
+                            title: <FormattedMessage id="pay-slip" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'leave-management',
+                    title: <FormattedMessage id="leave-management" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'manage-leave',
+                            title: <FormattedMessage id="manage-leave" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'attendance',
+                            title: <FormattedMessage id="attendance" />,
+                            type: 'collapse',
+                            children: [
+                                {
+                                    id: 'a-mark',
+                                    title: <FormattedMessage id="a-mark" />,
+                                    type: 'item',
+                                    url: '/app/contact/c-card',
+                                    breadcrumbs: false
+                                },
+                                {
+                                    id: 'b-bulk',
+                                    title: <FormattedMessage id="b-bulk" />,
+                                    type: 'item',
+                                    url: '/app/contact/c-list',
+                                    breadcrumbs: false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'performance-setup',
+                    title: <FormattedMessage id="performance-setup" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'indicator',
+                            title: <FormattedMessage id="indicator" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'appraisal',
+                            title: <FormattedMessage id="appraisal" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'goal-track',
+                            title: <FormattedMessage id="goal-track" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'training-set',
+                    title: <FormattedMessage id="training-set" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 't-list',
+                            title: <FormattedMessage id="t-list" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'trainer',
+                            title: <FormattedMessage id="trainer" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'recruitment',
+                    title: <FormattedMessage id="recruitment" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'jobs',
+                            title: <FormattedMessage id="jobs" />,
+                            type: 'item',
+                            url: '/app/contact/c-card',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'j-create',
+                            title: <FormattedMessage id="j-create" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'j-application',
+                            title: <FormattedMessage id="j-application" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'j-candidate',
+                            title: <FormattedMessage id="j-candidate" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'j-on-boarding',
+                            title: <FormattedMessage id="j-on-boarding" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'custom-que',
+                            title: <FormattedMessage id="custom-que" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'interview-sche',
+                            title: <FormattedMessage id="interview-sche" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        },
+                        {
+                            id: 'career',
+                            title: <FormattedMessage id="career" />,
+                            type: 'item',
+                            url: '/app/contact/c-list',
+                            breadcrumbs: false
+                        }
+                    ]
+                },
+                {
+                    id: 'hr-admin',
+                    title: <FormattedMessage id="hr-admin" />,
+                    type: 'collapse',
+                    children: [
+                        {
+                            id: 'award',
+                            title: <FormattedMessage id="award" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'transfer',
+                            title: <FormattedMessage id="transfer" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'resignation',
+                            title: <FormattedMessage id="resignation" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'trip',
+                            title: <FormattedMessage id="trip" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'complaints',
+                            title: <FormattedMessage id="complaints" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'warning',
+                            title: <FormattedMessage id="warning" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'promotion',
+                            title: <FormattedMessage id="promotion" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'termination',
+                            title: <FormattedMessage id="termination" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'announcement',
+                            title: <FormattedMessage id="announcement" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        },
+                        {
+                            id: 'holidays',
+                            title: <FormattedMessage id="holidays" />,
+                            type: 'item',
+                            url: '/customer/customer-list',
+                            breadcrumbs: true
+                        }
+                    ]
+                },
+                {
+                    id: 'event-setup',
+                    title: <FormattedMessage id="event-setup" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'meeting',
+                    title: <FormattedMessage id="meeting" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'e-asset',
+                    title: <FormattedMessage id="e-asset" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'doc-set',
+                    title: <FormattedMessage id="doc-set" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'company-policy',
+                    title: <FormattedMessage id="company-policy" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'hrm-system-setup',
+                    title: <FormattedMessage id="hrm-system-setup" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                }
+            ]
+        },
 
-        // {
-        //     id: 'crm-system',
-        //     title: <FormattedMessage id="crm-system" />,
-        //     type: 'collapse',
-        //     icon: icons.IconLayersLinked,
-        //     permission: [
-        //         permissions.customers.read,
-        //         permissions.customers.create,
-        //         permissions.customers.delete,
-        //         permissions.customers.update
-        //     ],
-        //     children: [
-        //         {
-        //             id: 'leads',
-        //             title: <FormattedMessage id="leads" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'deals',
-        //             title: <FormattedMessage id="deals" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'form-buidler',
-        //             title: <FormattedMessage id="form-buidler" />,
-        //             type: 'item',
-        //             url: '/app/contact/c-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'contract',
-        //             title: <FormattedMessage id="contract" />,
-        //             type: 'item',
-        //             url: '/customer/customer-list',
-        //             breadcrumbs: true
-        //         },
-        //         {
-        //             id: 'crm-system-set',
-        //             title: <FormattedMessage id="crm-system-set" />,
-        //             type: 'item',
-        //             url: '/app/contact/c-list',
-        //             breadcrumbs: true
-        //         }
-        //     ]
-        // },
+        {
+            id: 'crm-system',
+            title: <FormattedMessage id="crm-system" />,
+            type: 'collapse',
+            icon: icons.IconLayersLinked,
+            permission: [
+                permissions.customers.read,
+                permissions.customers.create,
+                permissions.customers.delete,
+                permissions.customers.update
+            ],
+            children: [
+                {
+                    id: 'leads',
+                    title: <FormattedMessage id="leads" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'deals',
+                    title: <FormattedMessage id="deals" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'form-buidler',
+                    title: <FormattedMessage id="form-buidler" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'contract',
+                    title: <FormattedMessage id="contract" />,
+                    type: 'item',
+                    url: '/customer/customer-list',
+                    breadcrumbs: true
+                },
+                {
+                    id: 'crm-system-set',
+                    title: <FormattedMessage id="crm-system-set" />,
+                    type: 'item',
+                    url: '/app/contact/c-list',
+                    breadcrumbs: true
+                }
+            ]
+        },
 
         // {
         //     id: 'accountingSystem',

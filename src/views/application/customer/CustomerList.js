@@ -199,7 +199,7 @@ const CustomerList = () => {
         }
     ];
 
-    const exportAllSelectedRows = () => {
+    const exportAllSelectedRows = async (e) => {
         new CsvBuilder('Order List.csv')
             .setColumns(columns.map((col) => col.title))
             .addRows(selectedRows.map((rowData) => columns.map((col) => rowData[col.field])))
@@ -223,6 +223,12 @@ const CustomerList = () => {
                             icon: () => <DownloadForOffline />,
                             tooltip: 'Export all selected rows',
                             onClick: () => exportAllSelectedRows()
+                        },
+                        {
+                            icon: () => <DownloadForOffline />,
+                            tooltip: 'Export all selected rows',
+                            onClick: () => exportAllSelectedRows(),
+                            isFreeAction: true
                         }
                     ]}
                     data={async (query) => {

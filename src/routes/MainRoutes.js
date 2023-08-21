@@ -26,6 +26,9 @@ const WidgetChart = Loadable(lazy(() => import('views/widget/Chart')));
 //     })
 // );
 
+//application - hrm- routing
+const AppHrmEmployeeSetup = Loadable(lazy(() => import('views/application/hrm-system/EmployeeSetup')));
+
 // application - customer routing
 const AppCustomerList = Loadable(lazy(() => import('views/application/customer/CustomerList')));
 const AppCustomerDetails = Loadable(lazy(() => import('views/application/customer/Details')));
@@ -178,7 +181,10 @@ const MainRoutes = {
             path: '/widget/chart',
             element: <WidgetChart />
         },
-
+        {
+            path: '/hrm-system/employee-setup',
+            element: <AppHrmEmployeeSetup />
+        },
         {
             path: '/customer/customer-list',
             element: <PermittedRoute path="/customer/customer-list" component={AppCustomerList} permissions={permissions.customers} />
