@@ -7,8 +7,8 @@ import { Avatar, Box, Button, IconButton, Tooltip, Typography } from '@mui/mater
 import { useDispatch, useSelector } from 'store';
 
 // assets
-import MaterialTable, { MTableAction, MTableToolbar } from '@material-table/core';
-import { FileCopy, FilterList, Print } from '@mui/icons-material';
+import MaterialTable, { MTableAction } from 'material-table';
+import { DownloadForOffline, FileCopy, FilterList, Print, SystemUpdateAlt } from '@mui/icons-material';
 import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -23,11 +23,13 @@ import formatDate from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
 import { useTheme } from '@mui/styles';
-
+import { IconFileDownload } from '@tabler/icons';
+import ReactToPrint from 'react-to-print';
 const CustomerList = () => {
     const theme = useTheme();
     const dispatch = useDispatch();
     const tableRef = React.useRef(null);
+    let componentRef = React.useRef(null);
     let modals = {};
     const isLoading = useSelector(customersModule.selectors.isLoading, shallowEqual);
     const [modalsState, setModalsState] = useState(modals);
@@ -86,192 +88,199 @@ const CustomerList = () => {
 
     return (
         <MainCard title="Order List" content={false}>
-            <MaterialTable
-                tableRef={tableRef}
-                style={{ boxShadow: 'none' }}
-                columns={[
-                    { title: 'ID', field: 'id' },
-                    {
-                        title: 'CID',
-                        field: 'cid',
-                        sorting: false,
-                        render: (rowData) => (
-                            <Typography
-                                variant="subtitle1"
-                                component={Link}
-                                to={`/customer/customer-list/${rowData.id}`}
-                                color="secondary"
-                                sx={{ textDecoration: 'none' }}
-                            >
-                                # {rowData.cid}
-                            </Typography>
-                        )
-                    },
-                    {
-                        title: 'Pro Pic',
-                        field: 'selfie',
-                        render: (rowdata) => <Avatar src={rowdata?.selfie_middle} />,
-                        sorting: false
-                    },
-                    {
-                        title: 'Name',
-                        field: 'name',
-                        sorting: false,
-                        render: (rowData) => (
-                            <Typography
-                                variant="subtitle1"
-                                component={Link}
-                                to={`/customer/customer-list/${rowData.id}`}
-                                color="secondary"
-                                sx={{ textDecoration: 'none' }}
-                            >
-                                {rowData.name}
-                            </Typography>
-                        )
-                    },
-                    {
-                        title: 'Phone',
-                        field: 'mobile',
-                        sorting: false,
-                        render: (rowData) => (
-                            <Typography
-                                variant="subtitle1"
-                                component={Link}
-                                to={`/customer/customer-list/${rowData.id}`}
-                                color="secondary"
-                                sx={{ textDecoration: 'none' }}
-                            >
-                                {rowData.mobile}
-                            </Typography>
-                        )
-                    },
-                    { title: 'Email', field: 'email' },
-                    {
-                        title: 'Status',
-                        field: 'status',
-                        sorting: false,
-                        render: (rowData) => (
-                            <>
-                                {rowData?.status === 'active' ? (
-                                    <Chip label={rowData?.status} size="small" chipcolor="success" />
-                                ) : (
-                                    <Chip label={rowData?.status} size="small" chipcolor="orange" />
-                                )}
-                            </>
-                        )
-                    },
+            <Box ref={componentRef}>
+                <MaterialTable
+                    tableRef={tableRef}
+                    style={{ boxShadow: 'none' }}
+                    columns={[
+                        { title: 'ID', field: 'id' },
+                        {
+                            title: 'CID',
+                            field: 'cid',
+                            sorting: false,
+                            render: (rowData) => (
+                                <Typography
+                                    variant="subtitle1"
+                                    component={Link}
+                                    to={`/customer/customer-list/${rowData.id}`}
+                                    color="secondary"
+                                    sx={{ textDecoration: 'none' }}
+                                >
+                                    # {rowData.cid}
+                                </Typography>
+                            )
+                        },
+                        {
+                            title: 'Pro Pic',
+                            field: 'selfie',
+                            render: (rowdata) => <Avatar src={rowdata?.selfie_middle} />,
+                            sorting: false
+                        },
+                        {
+                            title: 'Name',
+                            field: 'name',
+                            sorting: false,
+                            render: (rowData) => (
+                                <Typography
+                                    variant="subtitle1"
+                                    component={Link}
+                                    to={`/customer/customer-list/${rowData.id}`}
+                                    color="secondary"
+                                    sx={{ textDecoration: 'none' }}
+                                >
+                                    {rowData.name}
+                                </Typography>
+                            )
+                        },
+                        {
+                            title: 'Phone',
+                            field: 'mobile',
+                            sorting: false,
+                            render: (rowData) => (
+                                <Typography
+                                    variant="subtitle1"
+                                    component={Link}
+                                    to={`/customer/customer-list/${rowData.id}`}
+                                    color="secondary"
+                                    sx={{ textDecoration: 'none' }}
+                                >
+                                    {rowData.mobile}
+                                </Typography>
+                            )
+                        },
+                        { title: 'Email', field: 'email' },
+                        {
+                            title: 'Status',
+                            field: 'status',
+                            sorting: false,
+                            render: (rowData) => (
+                                <>
+                                    {rowData?.status === 'active' ? (
+                                        <Chip label={rowData?.status} size="small" chipcolor="success" />
+                                    ) : (
+                                        <Chip label={rowData?.status} size="small" chipcolor="orange" />
+                                    )}
+                                </>
+                            )
+                        },
 
-                    {
-                        field: 'status',
-                        title: 'Blocking',
-                        hidden: !hasPermission(permissions.customers.update),
-                        render: ({ status, id }) => {
-                            if (status === 'active') {
-                                return (
-                                    <>
-                                        <Button variant="outlined" color="secondary" onClick={() => handleBlock(id)}>
-                                            Block
+                        {
+                            field: 'status',
+                            title: 'Blocking',
+                            hidden: !hasPermission(permissions.customers.update),
+                            render: ({ status, id }) => {
+                                if (status === 'active') {
+                                    return (
+                                        <>
+                                            <Button variant="outlined" color="secondary" onClick={() => handleBlock(id)}>
+                                                Block
+                                            </Button>
+                                            <BlockMessageDialog
+                                                open={modalsState[`modal${id}`] ?? false}
+                                                handleClose={() => handleClose(id)}
+                                                userId={id}
+                                                tableRef={tableRef}
+                                            />
+                                        </>
+                                    );
+                                } else {
+                                    return (
+                                        <Button variant="outlined" color="primary" onClick={() => handleUnblock(id)}>
+                                            Unblock
                                         </Button>
-                                        <BlockMessageDialog
-                                            open={modalsState[`modal${id}`] ?? false}
-                                            handleClose={() => handleClose(id)}
-                                            userId={id}
-                                            tableRef={tableRef}
-                                        />
-                                    </>
-                                );
-                            } else {
-                                return (
-                                    <Button variant="outlined" color="primary" onClick={() => handleUnblock(id)}>
-                                        Unblock
-                                    </Button>
-                                );
+                                    );
+                                }
                             }
-                        }
-                    },
+                        },
 
-                    {
-                        field: 'created_at',
-                        title: 'Created',
-                        render: (rowdata) => formatDate(rowdata.created_at)
-                    }
-                ]}
-                actions={[
-                    {
-                        isFreeAction: true
-                    }
-                ]}
-                components={{
-                    Action: (props) => {
-                        if (props.action.isFreeAction) {
-                            return (
-                                <Box display="flex" alignItems="center">
-                                    <Box sx={{ textAlign: 'left', marginLeft: 'auto' }}>
-                                        <Tooltip title="Copy">
-                                            <IconButton
-                                                onClick={(e) => {
-                                                    console.log('copy');
-                                                }}
-                                                size="large"
-                                            >
-                                                <FileCopy />
-                                            </IconButton>
-                                        </Tooltip>
-                                        <Tooltip title="Print">
-                                            <IconButton
-                                                onClick={(e) => {
-                                                    console.log('print');
-                                                }}
-                                                size="large"
-                                            >
-                                                <Print />
-                                            </IconButton>
-                                        </Tooltip>
-                                        <Tooltip title="Filter">
-                                            <IconButton
-                                                onClick={(e) => {
-                                                    console.log('filter');
-                                                }}
-                                                size="large"
-                                            >
-                                                <FilterList />
-                                            </IconButton>
-                                        </Tooltip>
-                                    </Box>
-                                </Box>
-                            );
+                        {
+                            field: 'created_at',
+                            title: 'Created',
+                            render: (rowdata) => formatDate(rowdata.created_at)
                         }
-                        return <MTableAction {...props} />;
-                    }
-                }}
-                detailPanel={(rowData) => {
-                    return <Details {...rowData} />;
-                }}
-                data={async (query) => {
-                    setPageSize(query.pageSize);
-                    const res = await dispatch(
-                        customersModule.getAll({
-                            limit: query.pageSize,
-                            page: query.page + 1,
-                            sort: query.orderBy ? query.orderBy.field : 'id',
-                            order: query.orderDirection || 'desc',
-                            q: query.search
-                        })
-                    );
-                    return JSON.parse(JSON.stringify(res));
-                }}
-                isLoading={isLoading}
-                options={{
-                    search: true,
-                    showTitle: false,
-                    pageSize: pageSize,
-                    pageSizeOptions: [20, 50, 100],
-                    draggable: false,
-                    debounceInterval: 400,
-                    toolbarButtonAlignment: 'left',
-                    exportButton: true
-                }}
-            />
+                    ]}
+                    actions={[
+                        {
+                            icon: () => (
+                                <ReactToPrint
+                                    trigger={() => <Print fontSize="small" color="error" size="large" aria-label="delete" />}
+                                    content={() => componentRef.current}
+                                />
+                            ),
+                            tooltip: 'Print',
+                            isFreeAction: true
+                        }
+                    ]}
+                    // components={{
+                    //     Action: (props) => {
+                    //         if (props.action.isFreeAction) {
+                    //             return (
+                    //                 <>
+                    //                     {/* <Tooltip title="Copy">
+                    //                     <IconButton
+                    //                         onClick={(e) => {
+                    //                             console.log('copy');
+                    //                         }}
+                    //                         size="large"
+                    //                     >
+                    //                         <FileCopy />
+                    //                     </IconButton>
+                    //                 </Tooltip> */}
+                    //                     {/* <Tooltip title="Print">
+                    //                     <IconButton size="large">
+                    //                         <Print />
+                    //                     </IconButton>
+                    //                 </Tooltip> */}
+                    //                     <Tooltip title="Filter">
+                    //                         <IconButton
+                    //                             onClick={(e) => {
+                    //                                 console.log('filter');
+                    //                             }}
+                    //                             size="large"
+                    //                         >
+                    //                             <FilterList />
+                    //                         </IconButton>
+                    //                     </Tooltip>
+                    //                 </>
+                    //             );
+                    //         }
+                    //         return <MTableAction {...props} />;
+                    //     }
+                    // }}
+                    detailPanel={(rowData) => {
+                        return <Details {...rowData} />;
+                    }}
+                    data={async (query) => {
+                        setPageSize(query.pageSize);
+                        const res = await dispatch(
+                            customersModule.getAll({
+                                limit: query.pageSize,
+                                page: query.page + 1,
+                                sort: query.orderBy ? query.orderBy.field : 'id',
+                                order: query.orderDirection || 'desc',
+                                q: query.search
+                            })
+                        );
+                        return JSON.parse(JSON.stringify(res));
+                    }}
+                    isLoading={isLoading}
+                    options={{
+                        exportButton: true,
+                        exportAllData: true,
+                        search: true,
+                        showTitle: false,
+                        pageSize: pageSize,
+                        pageSizeOptions: [20, 50, 100, 200, 500],
+                        draggable: false,
+                        debounceInterval: 400,
+                        exportFileName: 'Order List',
+                        exportDelimiter: 'Order List',
+                        toolbarButtonAlignment: 'left',
+                        print: true,
+                        toolbar: true
+                    }}
+                />
+            </Box>
         </MainCard>
     );
 };

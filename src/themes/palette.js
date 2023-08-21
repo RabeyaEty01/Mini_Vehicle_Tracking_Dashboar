@@ -68,7 +68,7 @@ const Palette = (navType, presetColor) => {
                 main: colors.orangeMain,
                 dark: colors.orangeDark
             },
-            
+
             warning: {
                 light: colors.warningLight,
                 main: colors.warningMain,
@@ -83,6 +83,7 @@ const Palette = (navType, presetColor) => {
             grey: {
                 50: colors.grey50,
                 100: colors.grey100,
+                400: navType === 'dark' ? colors.darkTextSecondary : colors.grey400,
                 500: navType === 'dark' ? colors.darkTextSecondary : colors.grey500,
                 600: navType === 'dark' ? colors.darkTextTitle : colors.grey900,
                 700: navType === 'dark' ? colors.darkTextPrimary : colors.grey700,

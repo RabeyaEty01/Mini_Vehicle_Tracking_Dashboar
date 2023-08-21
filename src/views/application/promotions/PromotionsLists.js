@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Typography, CardHeader, Button, Modal, Fade, Backdrop, Box } from '@mui/material';
 
-import MaterialTable from '@material-table/core';
+import MaterialTable from 'material-table';
 import { useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import formatDate from 'utils/customFormates/formatDate';
