@@ -24,7 +24,8 @@ const Details = (props) => {
     const theme = useTheme();
     const dispatch = useDispatch();
     const params = useParams();
-    let id = props?.rowData?.id;
+    let id = props?.id;
+    console.log('id', id);
     const [selfieLightboxOpen, setSelfieLightboxOpen] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [signLightboxOpen, setSignLightboxOpen] = useState(false);

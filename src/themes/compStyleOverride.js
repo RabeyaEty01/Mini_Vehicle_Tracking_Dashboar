@@ -214,15 +214,14 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
         MuiToolbar: {
             styleOverrides: {
                 root: {
-                    '& .material-icons': {
-                        color: theme.palette.grey[400]
-                    },
                     '& .MuiFormControl-root': {
                         background: outlinedFilled ? bgColor : 'transparent',
                         borderRadius: `${borderRadius}px`,
                         border: '1px solid',
-                        borderColor: mode === 'dark' ? theme.palette.text.primary + 28 : theme.palette.grey[400],
-
+                        borderColor: mode === 'dark' ? theme.palette.text.primary + 28 : theme.palette.primary.light,
+                        '&:hover': {
+                            borderColor: theme.palette.grey[400]
+                        },
                         '& .MuiInputBase-root': {
                             fontWeight: 500,
                             outline: 0,
@@ -239,7 +238,6 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                                 paddingLeft: 4
                             }
                         },
-
                         notchedOutline: {
                             display: 'none',
                             borderRadius: `${borderRadius}px`
