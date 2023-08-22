@@ -75,7 +75,7 @@ const application = {
                     title: <FormattedMessage id="emp-set" />,
                     type: 'item',
                     url: '/hrm-system/employee-setup',
-                    breadcrumbs: true
+                    breadcrumbs: false
                 },
                 {
                     id: 'pay-set',
@@ -367,55 +367,55 @@ const application = {
             ]
         },
 
-        {
-            id: 'crm-system',
-            title: <FormattedMessage id="crm-system" />,
-            type: 'collapse',
-            icon: icons.IconLayersLinked,
-            permission: [
-                permissions.customers.read,
-                permissions.customers.create,
-                permissions.customers.delete,
-                permissions.customers.update
-            ],
-            children: [
-                {
-                    id: 'leads',
-                    title: <FormattedMessage id="leads" />,
-                    type: 'item',
-                    url: '/customer/customer-list',
-                    breadcrumbs: true
-                },
-                {
-                    id: 'deals',
-                    title: <FormattedMessage id="deals" />,
-                    type: 'item',
-                    url: '/customer/customer-list',
-                    breadcrumbs: true
-                },
-                {
-                    id: 'form-buidler',
-                    title: <FormattedMessage id="form-buidler" />,
-                    type: 'item',
-                    url: '/app/contact/c-list',
-                    breadcrumbs: true
-                },
-                {
-                    id: 'contract',
-                    title: <FormattedMessage id="contract" />,
-                    type: 'item',
-                    url: '/customer/customer-list',
-                    breadcrumbs: true
-                },
-                {
-                    id: 'crm-system-set',
-                    title: <FormattedMessage id="crm-system-set" />,
-                    type: 'item',
-                    url: '/app/contact/c-list',
-                    breadcrumbs: true
-                }
-            ]
-        },
+        // {
+        //     id: 'crm-system',
+        //     title: <FormattedMessage id="crm-system" />,
+        //     type: 'collapse',
+        //     icon: icons.IconLayersLinked,
+        //     permission: [
+        //         permissions.customers.read,
+        //         permissions.customers.create,
+        //         permissions.customers.delete,
+        //         permissions.customers.update
+        //     ],
+        //     children: [
+        //         {
+        //             id: 'leads',
+        //             title: <FormattedMessage id="leads" />,
+        //             type: 'item',
+        //             url: '/customer/customer-list',
+        //             breadcrumbs: true
+        //         },
+        //         {
+        //             id: 'deals',
+        //             title: <FormattedMessage id="deals" />,
+        //             type: 'item',
+        //             url: '/customer/customer-list',
+        //             breadcrumbs: true
+        //         },
+        //         {
+        //             id: 'form-buidler',
+        //             title: <FormattedMessage id="form-buidler" />,
+        //             type: 'item',
+        //             url: '/app/contact/c-list',
+        //             breadcrumbs: true
+        //         },
+        //         {
+        //             id: 'contract',
+        //             title: <FormattedMessage id="contract" />,
+        //             type: 'item',
+        //             url: '/customer/customer-list',
+        //             breadcrumbs: true
+        //         },
+        //         {
+        //             id: 'crm-system-set',
+        //             title: <FormattedMessage id="crm-system-set" />,
+        //             type: 'item',
+        //             url: '/app/contact/c-list',
+        //             breadcrumbs: true
+        //         }
+        //     ]
+        // },
 
         // {
         //     id: 'accountingSystem',
@@ -1124,7 +1124,6 @@ const application = {
         //     ]
         // },
 
-
         {
             id: 'customer',
             title: <FormattedMessage id="customer" />,
@@ -1173,8 +1172,7 @@ const application = {
                     breadcrumbs: false
                 }
             ]
-        },
-
+        }
 
         // {
         //     id: 'contact',

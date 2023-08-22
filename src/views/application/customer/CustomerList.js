@@ -29,7 +29,7 @@ const CustomerList = () => {
     const [modalsState, setModalsState] = useState(modals);
     const [pageSize, setPageSize] = useState(20);
     const [selectedRows, setSelectedRows] = useState([]);
-    const [sort, setSort] = useState(true);
+    const [sort, setSort] = useState(false);
     const handleOpen = (id) => {
         const modalsStateTmp = { ...modalsState };
         modalsStateTmp[`modal${id}`] = true;
@@ -193,14 +193,14 @@ const CustomerList = () => {
     ];
 
     const exportAllSelectedRows = async (e) => {
-        new CsvBuilder('Order List.csv')
+        new CsvBuilder('Customer List.csv')
             .setColumns(columns.map((col) => col.title))
             .addRows(selectedRows.map((rowData) => columns.map((col) => rowData[col.field])))
             .exportFile();
     };
 
     return (
-        <MainCard title="Order List" content={false}>
+        <MainCard title="Customer List" content={false}>
             <Box>
                 <MaterialTable
                     tableRef={tableRef}
@@ -284,8 +284,8 @@ const CustomerList = () => {
                         pageSizeOptions: [20, 50, 100, 200, 500],
                         debounceInterval: 400,
                         draggable: false,
-                        exportFileName: 'Order List',
-                        exportDelimiter: 'Order List',
+                        exportFileName: 'Customer List',
+                        exportDelimiter: 'Customer List',
                         toolbarButtonAlignment: 'left',
                         toolbar: true,
                         selection: true,
