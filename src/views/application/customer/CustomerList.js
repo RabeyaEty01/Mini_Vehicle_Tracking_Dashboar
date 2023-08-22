@@ -1,27 +1,11 @@
 import * as React from 'react';
-
 // material-ui
 import { Avatar, Box, Button, IconButton, Tooltip, Typography } from '@mui/material';
-
 // project imports
 import { useDispatch, useSelector } from 'store';
-
 // assets
-import MaterialTable, { MTableAction, MTableToolbar } from 'material-table';
-import {
-    ArrowDownward,
-    Delete,
-    DownloadForOffline,
-    FileCopy,
-    Filter,
-    FilterList,
-    FilterListOff,
-    Print,
-    Refresh,
-    ResetTvRounded,
-    SaveAlt,
-    SystemUpdateAlt
-} from '@mui/icons-material';
+import MaterialTable from 'material-table';
+import { DownloadForOffline, FilterList, FilterListOff, Refresh } from '@mui/icons-material';
 import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -35,38 +19,11 @@ import permissions from 'utils/adminPermission/permissions';
 import formatDate from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
-import { useTheme } from '@mui/styles';
-import { IconArrowsSort, IconFileDownload } from '@tabler/icons';
-import ReactToPrint from 'react-to-print';
 import { CsvBuilder } from 'filefy';
 
-const CustomHeader = (props) => {
-    const [isDefaultSorted, setIsDefaultSorted] = useState(true);
-
-    useEffect(() => {
-        if (isDefaultSorted) {
-            // Simulate a click on the column header
-            const columnId = 'columnNameToSortBy'; // Replace with the actual column ID
-            const clickEvent = new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-                view: window
-            });
-            const columnHeader = document.querySelector(`[data-field="${columnId}"]`);
-            columnHeader.dispatchEvent(clickEvent);
-
-            setIsDefaultSorted(false);
-        }
-    }, [isDefaultSorted]);
-
-    return <MTableHeader {...props} />;
-};
-
 const CustomerList = () => {
-    const theme = useTheme();
     const dispatch = useDispatch();
     const tableRef = React.useRef(null);
-    let componentRef = React.useRef(null);
     let modals = {};
     const isLoading = useSelector(customersModule.selectors.isLoading, shallowEqual);
     const [modalsState, setModalsState] = useState(modals);
