@@ -8,7 +8,20 @@ import { useDispatch, useSelector } from 'store';
 
 // assets
 import MaterialTable, { MTableAction, MTableToolbar } from 'material-table';
-import { Delete, DownloadForOffline, FileCopy, FilterList, Print, SaveAlt, SystemUpdateAlt } from '@mui/icons-material';
+import {
+    ArrowDownward,
+    Delete,
+    DownloadForOffline,
+    FileCopy,
+    Filter,
+    FilterList,
+    FilterListOff,
+    Print,
+    Refresh,
+    ResetTvRounded,
+    SaveAlt,
+    SystemUpdateAlt
+} from '@mui/icons-material';
 import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -23,9 +36,32 @@ import formatDate from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
 import { useTheme } from '@mui/styles';
-import { IconFileDownload } from '@tabler/icons';
+import { IconArrowsSort, IconFileDownload } from '@tabler/icons';
 import ReactToPrint from 'react-to-print';
 import { CsvBuilder } from 'filefy';
+
+const CustomHeader = (props) => {
+    const [isDefaultSorted, setIsDefaultSorted] = useState(true);
+
+    useEffect(() => {
+        if (isDefaultSorted) {
+            // Simulate a click on the column header
+            const columnId = 'columnNameToSortBy'; // Replace with the actual column ID
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+            const columnHeader = document.querySelector(`[data-field="${columnId}"]`);
+            columnHeader.dispatchEvent(clickEvent);
+
+            setIsDefaultSorted(false);
+        }
+    }, [isDefaultSorted]);
+
+    return <MTableHeader {...props} />;
+};
+
 const CustomerList = () => {
     const theme = useTheme();
     const dispatch = useDispatch();
@@ -36,7 +72,7 @@ const CustomerList = () => {
     const [modalsState, setModalsState] = useState(modals);
     const [pageSize, setPageSize] = useState(20);
     const [selectedRows, setSelectedRows] = useState([]);
-
+    const [sort, setSort] = useState(true);
     const handleOpen = (id) => {
         const modalsStateTmp = { ...modalsState };
         modalsStateTmp[`modal${id}`] = true;
@@ -96,7 +132,7 @@ const CustomerList = () => {
         {
             title: 'CID',
             field: 'cid',
-            sorting: false,
+            //  sorting: false,
             render: (rowData) => (
                 <Typography
                     variant="subtitle1"
@@ -118,7 +154,7 @@ const CustomerList = () => {
         {
             title: 'Name',
             field: 'name',
-            sorting: false,
+            //  sorting: false,
             render: (rowData) => (
                 <Typography
                     variant="subtitle1"
@@ -134,7 +170,7 @@ const CustomerList = () => {
         {
             title: 'Phone',
             field: 'mobile',
-            sorting: false,
+            // sorting: false,
             render: (rowData) => (
                 <Typography
                     variant="subtitle1"
@@ -151,7 +187,7 @@ const CustomerList = () => {
         {
             title: 'Status',
             field: 'status',
-            sorting: false,
+            // sorting: false,
             render: (rowData) => (
                 <>
                     {rowData?.status === 'active' ? (
@@ -205,6 +241,7 @@ const CustomerList = () => {
             .addRows(selectedRows.map((rowData) => columns.map((col) => rowData[col.field])))
             .exportFile();
     };
+
     return (
         <MainCard title="Order List" content={false}>
             <Box>
@@ -214,23 +251,56 @@ const CustomerList = () => {
                     style={{ boxShadow: 'none' }}
                     columns={columns}
                     actions={[
-                        // {
-                        //     icon: 'delete',
-                        //     tooltip: 'Delete all selected rows',
-                        //     onClick: () => handleBulkDelete()
-                        // },
                         {
-                            icon: () => <DownloadForOffline />,
-                            tooltip: 'Export all selected rows',
-                            onClick: () => exportAllSelectedRows()
+                            icon: 'refresh',
+                            tooltip: 'Refresh Data',
+                            isFreeAction: true
                         },
                         {
                             icon: () => <DownloadForOffline />,
-                            tooltip: 'Export all selected rows',
-                            onClick: () => exportAllSelectedRows(),
-                            isFreeAction: true
+                            tooltip: 'Export Selected Rows'
                         }
                     ]}
+                    components={{
+                        Action: (props) => {
+                            if (props.action || props.action.isfreeAction) {
+                                return (
+                                    <>
+                                        <Tooltip title="Filter">
+                                            <IconButton
+                                                onClick={() => {
+                                                    setSort(!sort);
+                                                }}
+                                                size="large"
+                                            >
+                                                {sort ? <FilterList /> : <FilterListOff />}
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Refresh">
+                                            <IconButton
+                                                onClick={() => {
+                                                    tableRef.current && tableRef.current.onQueryChange();
+                                                }}
+                                                size="large"
+                                            >
+                                                <Refresh />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Button
+                                            variant="outlined"
+                                            disableElevation
+                                            disabled={selectedRows.length === 0 ? true : false}
+                                            size="small"
+                                            sx={{ ml: 1 }}
+                                            onClick={exportAllSelectedRows}
+                                        >
+                                            <DownloadForOffline sx={{ mr: 1 }} /> Export Selected Rows
+                                        </Button>
+                                    </>
+                                );
+                            }
+                        }
+                    }}
                     data={async (query) => {
                         setPageSize(query.pageSize);
                         const res = await dispatch(
@@ -255,13 +325,15 @@ const CustomerList = () => {
                         showTitle: false,
                         pageSize: pageSize,
                         pageSizeOptions: [20, 50, 100, 200, 500],
-                        draggable: true,
                         debounceInterval: 400,
+                        draggable: false,
                         exportFileName: 'Order List',
                         exportDelimiter: 'Order List',
                         toolbarButtonAlignment: 'left',
                         toolbar: true,
-                        selection: true
+                        selection: true,
+                        sorting: sort,
+                        refresh: true
                     }}
                 />
             </Box>

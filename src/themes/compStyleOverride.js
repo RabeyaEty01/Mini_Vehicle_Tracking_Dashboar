@@ -247,6 +247,15 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
             }
         },
 
+        MuiTableSortLabel: {
+            styleOverrides: {
+                root: {
+                    '& .MuiTableSortLabel-icon': {
+                        opacity: 0.5
+                    }
+                }
+            }
+        },
         MuiAvatar: {
             styleOverrides: {
                 root: {
