@@ -60,7 +60,7 @@ const EmployeeSetup = () => {
     ];
 
     return (
-        <MainCard title="Customer List" content={false}>
+        <MainCard title="Employee Setup List" content={false}>
             <Box>
                 <MaterialTable
                     tableRef={tableRef}
@@ -134,8 +134,8 @@ const EmployeeSetup = () => {
                         pageSizeOptions: [5, 10, 20, 50, 100],
                         debounceInterval: 400,
                         draggable: false,
-                        exportFileName: 'Customer List',
-                        exportDelimiter: 'Customer List',
+                        exportFileName: 'Employee List',
+                        exportDelimiter: 'Employee List',
                         toolbarButtonAlignment: 'left',
                         actionsColumnIndex: -1,
                         toolbar: true,
