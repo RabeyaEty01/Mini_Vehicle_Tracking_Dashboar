@@ -4,8 +4,10 @@ import { Avatar, Box, Button, IconButton, Tooltip, Typography } from '@mui/mater
 // project imports
 import { useDispatch, useSelector } from 'store';
 // assets
-import MaterialTable from 'material-table';
 import { DownloadForOffline, FilterList, FilterListOff, Refresh } from '@mui/icons-material';
+import { useTheme } from '@mui/styles';
+import { CsvBuilder } from 'filefy';
+import MaterialTable from 'material-table';
 import { useCallback, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -16,12 +18,13 @@ import MainCard from 'ui-component/cards/MainCard';
 import Chip from 'ui-component/extended/Chip';
 import hasPermission from 'utils/adminPermission/hasPermission';
 import permissions from 'utils/adminPermission/permissions';
-import {formatDateTime} from 'utils/customFormates/formatDate';
+import { formatDateTime } from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
-import { CsvBuilder } from 'filefy';
+import { IconFileExport } from '@tabler/icons';
 
 const CustomerList = () => {
+    const theme = useTheme();
     const dispatch = useDispatch();
     const tableRef = React.useRef(null);
     let modals = {};
@@ -204,17 +207,27 @@ const CustomerList = () => {
             <Box>
                 <MaterialTable
                     tableRef={tableRef}
+                    icons={{
+                        Export: () => (
+                            <IconFileExport
+                                fontSize="large"
+                                style={{ backgroundColor: theme.palette.secondary.main }}
+                                size="large"
+                                aria-label="edit"
+                            />
+                        )
+                    }}
                     onSelectionChange={(rows) => setSelectedRows(rows)}
                     style={{ boxShadow: 'none' }}
                     columns={columns}
                     actions={[
                         {
                             icon: 'refresh',
-                            tooltip: 'Refresh Data',
+                            tooltip: 'Refresh',
                             isFreeAction: true
                         },
                         {
-                            icon: () => <DownloadForOffline />,
+                            icon: () => <DownloadForOffline style={{ backgroundColor: theme.palette.secondary.main }} />,
                             tooltip: 'Export Selected Rows'
                         }
                     ]}
@@ -230,7 +243,19 @@ const CustomerList = () => {
                                                 }}
                                                 size="large"
                                             >
-                                                {sort ? <FilterList /> : <FilterListOff />}
+                                                {sort ? (
+                                                    <FilterList
+                                                        fontSize="large"
+                                                        style={{ backgroundColor: theme.palette.secondary.main }}
+                                                        size="large"
+                                                    />
+                                                ) : (
+                                                    <FilterListOff
+                                                        fontSize="large"
+                                                        style={{ backgroundColor: theme.palette.secondary.main }}
+                                                        size="large"
+                                                    />
+                                                )}
                                             </IconButton>
                                         </Tooltip>
                                         <Tooltip title="Refresh">
@@ -240,7 +265,12 @@ const CustomerList = () => {
                                                 }}
                                                 size="large"
                                             >
-                                                <Refresh />
+                                                <Refresh
+                                                    fontSize="large"
+                                                    style={{ backgroundColor: theme.palette.secondary.main }}
+                                                    size="large"
+                                                    aria-label="edit"
+                                                />
                                             </IconButton>
                                         </Tooltip>
                                         <Button

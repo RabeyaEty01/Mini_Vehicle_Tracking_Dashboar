@@ -214,6 +214,23 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
         MuiToolbar: {
             styleOverrides: {
                 root: {
+                    '& span': {
+                        '& .MuiIconButton-root': {
+                            backgroundColor: 'inherit',
+
+                            '&:hover': {
+                                backgroundColor: 'transparent'
+                            },
+                            '& svg': {
+                                padding: '8px',
+                                height: '34px',
+                                width: '34px',
+                                borderRadius: '29%',
+                                color: 'white'
+                            }
+                        }
+                    },
+
                     '& .MuiFormControl-root': {
                         background: outlinedFilled ? bgColor : 'transparent',
                         borderRadius: `${borderRadius}px`,
@@ -330,20 +347,22 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                 }
             }
         },
+
         MuiTableCell: {
             styleOverrides: {
                 root: {
                     borderColor: mode === 'dark' ? theme.palette.text.primary + 15 : theme.palette.grey[200],
-                    '&.MuiTableCell-head': {
-                        textTransform:"uppercase",
+                    '& .MuiTableCell-head': {
+                        textTransform: 'uppercase',
                         fontSize: '0.875rem',
                         color: theme.palette.grey[600],
                         fontWeight: 500,
-                        textWrap:'nowrap'
+                        textWrap: 'nowrap'
                     }
                 }
             }
         },
+
         MuiTableBody: {
             styleOverrides: {
                 root: {
@@ -354,7 +373,6 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                             padding: '8px',
                             height: '30px',
                             width: '30px',
-
                             borderRadius: '29%'
                         }
                     }

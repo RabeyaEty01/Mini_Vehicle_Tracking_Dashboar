@@ -3,8 +3,9 @@ import * as React from 'react';
 import { Box, Button } from '@mui/material';
 // project imports
 // assets
-import { DeleteOutline, EditTwoTone } from '@mui/icons-material';
+import { DeleteOutline, EditTwoTone, Refresh } from '@mui/icons-material';
 import { useTheme } from '@mui/styles';
+import { IconFileExport } from '@tabler/icons';
 import MaterialTable from 'material-table';
 import { useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
@@ -67,8 +68,15 @@ const EmployeeSetup = () => {
                     columns={columns}
                     actions={[
                         {
-                            icon: 'refresh',
-                            tooltip: 'Refresh Data',
+                            icon: () => (
+                                <Refresh
+                                    fontSize="large"
+                                    style={{ backgroundColor: theme.palette.secondary.main }}
+                                    size="large"
+                                    aria-label="edit"
+                                />
+                            ),
+                            tooltip: 'Refresh',
                             isFreeAction: true
                         },
                         {
@@ -107,6 +115,16 @@ const EmployeeSetup = () => {
                         }
                     ]}
                     data={employeeSetUpData}
+                    icons={{
+                        Export: () => (
+                            <IconFileExport
+                                fontSize="large"
+                                style={{ backgroundColor: theme.palette.secondary.main }}
+                                size="large"
+                                aria-label="edit"
+                            />
+                        )
+                    }}
                     options={{
                         exportButton: true,
                         exportAllData: true,
