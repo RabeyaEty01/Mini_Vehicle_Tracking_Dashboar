@@ -7,7 +7,7 @@ import MainCard from 'ui-component/cards/MainCard';
 import promotionsModule from 'store/slices/promotionsModule';
 import { gridSpacing } from 'store/constant';
 import useConfig from 'hooks/useConfig';
-import formatDate from 'utils/customFormates/formatDate';
+import {formatDateTime} from 'utils/customFormates/formatDate';
 
 const Details = (props) => {
     const dispatch = useDispatch();
@@ -61,11 +61,11 @@ const Details = (props) => {
                     <Grid container spacing={gridSpacing}>
                         <Grid item xs={6}>
                             <Typography variant="caption">Created At </Typography>
-                            <Typography variant="h6">{data?.created_at && formatDate(data.created_at)}</Typography>
+                            <Typography variant="h6">{data?.created_at && formatDateTime(data.created_at)}</Typography>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="caption">Updated At</Typography>
-                            <Typography variant="h6">{data?.updated_at && formatDate(data.updated_at)}</Typography>
+                            <Typography variant="h6">{data?.updated_at && formatDateTime(data.updated_at)}</Typography>
                         </Grid>
                     </Grid>
                 </Grid>

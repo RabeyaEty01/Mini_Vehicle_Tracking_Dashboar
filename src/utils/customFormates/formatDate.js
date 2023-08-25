@@ -1,6 +1,11 @@
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 
-export default function formatDate(date, template = 'dd MMM, yyyy - hh:mm a') {
-  return format(parseISO(new Date(date).toISOString()), template);
-}
+const formatDate = (date, template = 'MMM dd, yyyy') => {
+    return format(parseISO(new Date(date).toISOString()), template);
+};
+const formatDateTime = (date, template = 'yyyy-MM-dd hh:mm:ss') => {
+    return format(parseISO(new Date(date).toISOString()), template);
+};
+
+export { formatDate, formatDateTime };

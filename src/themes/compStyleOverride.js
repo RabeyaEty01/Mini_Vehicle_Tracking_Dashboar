@@ -335,9 +335,28 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                 root: {
                     borderColor: mode === 'dark' ? theme.palette.text.primary + 15 : theme.palette.grey[200],
                     '&.MuiTableCell-head': {
+                        textTransform:"uppercase",
                         fontSize: '0.875rem',
                         color: theme.palette.grey[600],
-                        fontWeight: 500
+                        fontWeight: 500,
+                        textWrap:'nowrap'
+                    }
+                }
+            }
+        },
+        MuiTableBody: {
+            styleOverrides: {
+                root: {
+                    '& .MuiIconButton-root': {
+                        backgroundColor: 'inherit',
+                        color: 'white',
+                        '& .MuiSvgIcon-root': {
+                            padding: '8px',
+                            height: '30px',
+                            width: '30px',
+
+                            borderRadius: '29%'
+                        }
                     }
                 }
             }

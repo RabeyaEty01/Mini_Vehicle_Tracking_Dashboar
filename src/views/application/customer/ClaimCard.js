@@ -1,11 +1,12 @@
 import { Avatar, AvatarGroup, Badge, Card, CardContent, Chip, Grid, Typography, badgeClasses } from '@mui/material';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import formatDate from 'utils/customFormates/formatDate';
+
 import { makeStyles, withStyles } from '@mui/styles';
 import { useTheme, styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import Lightbox from 'react-awesome-lightbox';
+import { formatDateTime } from 'utils/customFormates/formatDate';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: '100%',
@@ -206,7 +207,7 @@ export default function ClaimCard({ data, forCustomer }) {
                                     <strong>Products Count:</strong> {data?.products_count}
                                 </Typography>
                                 <Typography variant="body1">
-                                    <strong>Claim Date:</strong> {formatDate(data?.created_at)}
+                                    <strong>Claim Date:</strong> {formatDateTime(data?.created_at)}
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} md={4} lg={3}>

@@ -6,7 +6,7 @@ import { Avatar, Typography, CardHeader, Button, Modal, Fade, Backdrop, Box } fr
 import MaterialTable from 'material-table';
 import { useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import formatDate from 'utils/customFormates/formatDate';
+import {formatDateTime} from 'utils/customFormates/formatDate';
 import Chip from 'ui-component/extended/Chip';
 import promotionsModule from 'store/slices/promotionsModule';
 import { AddCircleRounded, Delete, DeleteOutline, EditTwoTone } from '@mui/icons-material';
@@ -185,7 +185,7 @@ const PromotionsLists = () => {
                         {
                             field: 'created_at',
                             title: 'Created',
-                            render: (rowdata) => formatDate(rowdata.created_at)
+                            render: (rowdata) => formatDateTime(rowdata.created_at)
                         }
                     ]}
                     data={async (query) => {

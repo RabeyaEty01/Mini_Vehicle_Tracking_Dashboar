@@ -16,7 +16,7 @@ import MainCard from 'ui-component/cards/MainCard';
 import Chip from 'ui-component/extended/Chip';
 import hasPermission from 'utils/adminPermission/hasPermission';
 import permissions from 'utils/adminPermission/permissions';
-import formatDate from 'utils/customFormates/formatDate';
+import {formatDateTime} from 'utils/customFormates/formatDate';
 import BlockMessageDialog from './BlockMessageDialog';
 import Details from './Details';
 import { CsvBuilder } from 'filefy';
@@ -188,7 +188,7 @@ const CustomerList = () => {
         {
             field: 'created_at',
             title: 'Created',
-            render: (rowdata) => formatDate(rowdata.created_at)
+            render: (rowdata) => formatDateTime(rowdata.created_at)
         }
     ];
 
