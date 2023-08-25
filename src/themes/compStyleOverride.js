@@ -347,18 +347,25 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                 }
             }
         },
+        MuiTableRow: {
+            styleOverrides: {
+                root: {
+                    '& .MuiTableCell-head': {
+                        textTransform: 'uppercase',
+                        textWrap: 'nowrap'
+                    }
+                }
+            }
+        },
 
         MuiTableCell: {
             styleOverrides: {
                 root: {
                     borderColor: mode === 'dark' ? theme.palette.text.primary + 15 : theme.palette.grey[200],
-                    '& .MuiTableCell-head': {
-                        textTransform: 'uppercase',
-                        fontSize: '0.875rem',
-                        color: theme.palette.grey[600],
-                        fontWeight: 500,
-                        textWrap: 'nowrap'
-                    }
+                    fontSize: '0.875rem',
+                    color: theme.palette.grey[600],
+                    fontWeight: 500,
+                    textWrap: 'nowrap'
                 }
             }
         },
