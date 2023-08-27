@@ -329,7 +329,8 @@ export const payrollSetSalry = [
             company: 'Urbanshee',
             payroll_type: 'Hourly Payslip',
             salary: '$17.00',
-            net_salary: '$2,335,418.36'
+            net_salary: '$2,335,418.36',
+            status: 'paid'
         },
         created_at: '2013-03-20T23:48:37.830Z',
         updated_at: '2013-03-21T23:48:37.830Z',
@@ -349,7 +350,8 @@ export const payrollSetSalry = [
             company: 'Luxuria',
             payroll_type: 'Monthly  Payslip',
             salary: '$10,000.00',
-            net_salary: '$12,0000.00'
+            net_salary: '$12,0000.00',
+            status: 'unpaid'
         },
         created_at: '2011-04-14T22:21:13.423Z',
         updated_at: '2011-04-15T22:21:13.423Z',
@@ -369,7 +371,8 @@ export const payrollSetSalry = [
             company: 'Amtap',
             payroll_type: 'Hourly Payslip',
             salary: '$250,000.00',
-            net_salary: '$162,880.00'
+            net_salary: '$162,880.00',
+            status: 'unpaid'
         },
         created_at: '2014-06-08T18:44:26.494Z',
         updated_at: '2014-06-09T18:44:26.494Z',
@@ -389,7 +392,8 @@ export const payrollSetSalry = [
             company: 'Providco',
             payroll_type: 'Monthly  Payslip',
             salary: '$15,000.00',
-            net_salary: '$32,0000.00'
+            net_salary: '$32,0000.00',
+            status: 'unpaid'
         },
         created_at: '2014-09-16T11:13:59.619Z',
         updated_at: '2014-09-17T11:13:59.619Z',
@@ -409,7 +413,8 @@ export const payrollSetSalry = [
             company: 'Insurety',
             payroll_type: 'Hourly Payslip',
             salary: '$174,000.00',
-            net_salary: '$139,940.00'
+            net_salary: '$139,940.00',
+            status: 'unpaid'
         },
         created_at: '2013-03-25T23:07:08.354Z',
         updated_at: '2013-03-26T23:07:08.354Z',
@@ -428,7 +433,8 @@ export const payrollSetSalry = [
             company: 'Gluid',
             payroll_type: 'Hourly Payslip',
             salary: '$14,000.00',
-            net_salary: '$19,940.00'
+            net_salary: '$19,940.00',
+            status: 'unpaid'
         },
         created_at: '2012-01-24T13:37:52.961Z',
         updated_at: '2012-01-25T13:37:52.961Z',
@@ -447,7 +453,8 @@ export const payrollSetSalry = [
             company: 'Prosely',
             payroll_type: 'Monthly Payslip',
             salary: '$24,000.00',
-            net_salary: '$79,980.00'
+            net_salary: '$79,980.00',
+            status: 'unpaid'
         },
         created_at: '2010-11-26T15:13:33.243Z',
         updated_at: '2010-11-27T15:13:33.243Z',
@@ -466,7 +473,8 @@ export const payrollSetSalry = [
             company: 'Cuizine',
             payroll_type: 'Hourly Payslip',
             salary: '$274,000.00',
-            net_salary: '$539,940.00'
+            net_salary: '$539,940.00',
+            status: 'unpaid'
         },
         created_at: '2013-04-15T19:04:53.442Z',
         updated_at: '2013-04-16T19:04:53.442Z',
@@ -485,7 +493,8 @@ export const payrollSetSalry = [
             company: 'Zillidium',
             payroll_type: 'Monthly Payslip',
             salary: '$174,000.00',
-            net_salary: '$139,940.00'
+            net_salary: '$139,940.00',
+            status: 'unpaid'
         },
         created_at: '2012-11-08T01:25:43.860Z',
         updated_at: '2012-11-09T01:25:43.860Z',
@@ -504,7 +513,8 @@ export const payrollSetSalry = [
             company: 'Fossiel',
             payroll_type: 'Hourly Payslip',
             salary: '$14,000.00',
-            net_salary: '$29,240.00'
+            net_salary: '$29,240.00',
+            status: 'unpaid'
         },
         created_at: '2012-10-07T15:41:07.955Z',
         updated_at: '2012-10-08T15:41:07.955Z',
@@ -523,7 +533,8 @@ export const payrollSetSalry = [
             company: 'Poshome',
             payroll_type: 'Monthly Payslip',
             salary: '$171,000.00',
-            net_salary: '$439,940.00'
+            net_salary: '$439,940.00',
+            status: 'unpaid'
         },
         created_at: '2012-03-07T18:31:55.681Z',
         updated_at: '2012-03-08T18:31:55.681Z',
@@ -542,7 +553,8 @@ export const payrollSetSalry = [
             company: 'Myopium',
             payroll_type: 'Hourly Payslip',
             salary: '$174,000.00',
-            net_salary: '$139,940.00'
+            net_salary: '$139,940.00',
+            status: 'paid'
         },
         created_at: '2012-12-07T05:41:21.683Z',
         updated_at: '2012-12-08T05:41:21.683Z',
@@ -561,7 +573,8 @@ export const payrollSetSalry = [
             company: 'Globoil',
             payroll_type: 'Monthly Payslip',
             salary: '$94,000.00',
-            net_salary: '$539,940.00'
+            net_salary: '$539,940.00',
+            status: 'unpaid'
         },
         created_at: '2014-03-05T08:31:42.572Z',
         updated_at: '2014-03-06T08:31:42.572Z',
@@ -580,7 +593,8 @@ export const payrollSetSalry = [
             company: 'Centree',
             payroll_type: 'Hourly Payslip',
             salary: '$34,000.00',
-            net_salary: '$346,940.00'
+            net_salary: '$346,940.00',
+            status: 'unpaid'
         },
         created_at: '2014-02-14T06:28:50.973Z',
         updated_at: '2014-02-15T06:28:50.973Z',
@@ -599,7 +613,8 @@ export const payrollSetSalry = [
             company: 'Signity',
             payroll_type: 'Monthly Payslip',
             salary: '$174,000.00',
-            net_salary: '$139,940.00'
+            net_salary: '$139,940.00',
+            status: 'unpaid'
         },
         created_at: '2014-10-06T04:49:08.461Z',
         updated_at: '2014-10-07T04:49:08.461Z',
@@ -618,7 +633,8 @@ export const payrollSetSalry = [
             company: 'Zoarere',
             payroll_type: 'Hourly Payslip',
             salary: '$78,000.00',
-            net_salary: '$86,940.00'
+            net_salary: '$86,940.00',
+            status: 'unpaid'
         },
         created_at: '2014-12-02T12:45:59.323Z',
         updated_at: '2014-12-03T12:45:59.323Z',
@@ -637,7 +653,8 @@ export const payrollSetSalry = [
             company: 'Thredz',
             payroll_type: 'Monthly Payslip',
             salary: '$334,000.00',
-            net_salary: '$939,940.00'
+            net_salary: '$939,940.00',
+            status: 'unpaid'
         },
         created_at: '2010-10-11T04:44:13.784Z',
         updated_at: '2010-10-12T04:44:13.784Z',
@@ -656,7 +673,8 @@ export const payrollSetSalry = [
             company: 'Fiberox',
             payroll_type: 'Hourly Payslip',
             salary: '$454,000.00',
-            net_salary: '$3439,50.00'
+            net_salary: '$3439,50.00',
+            status: 'unpaid'
         },
         created_at: '2014-05-17T02:14:17.782Z',
         updated_at: '2014-05-18T02:14:17.782Z',
@@ -675,7 +693,8 @@ export const payrollSetSalry = [
             company: 'Obliq',
             payroll_type: 'Monthly Payslip',
             salary: '$174,000.00',
-            net_salary: '$139,940.00'
+            net_salary: '$139,940.00',
+            status: 'unpaid'
         },
         created_at: '2013-11-17T12:21:27.991Z',
         updated_at: '2013-11-18T12:21:27.991Z',
