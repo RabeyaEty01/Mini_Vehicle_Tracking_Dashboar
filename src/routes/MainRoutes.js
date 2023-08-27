@@ -14,18 +14,6 @@ const DashboardAnalytics = Loadable(lazy(() => import('views/dashboard/Analytics
 const WidgetStatistics = Loadable(lazy(() => import('views/widget/Statistics')));
 const WidgetData = Loadable(lazy(() => import('views/widget/Data')));
 const WidgetChart = Loadable(lazy(() => import('views/widget/Chart')));
-
-// // widget routing
-// const WidgetStatistics = Loadable(
-//     lazy(() => import('views/widget/Statistics'), {
-//         fallback: Loading({
-//             pastDelay: true,
-//             error: false,
-//             timedOut: false
-//         })
-//     })
-// );
-
 //application - hrm- routing
 const AppHrmEmployeeSetup = Loadable(lazy(() => import('views/application/hrm-system/EmployeeSetup')));
 

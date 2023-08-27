@@ -8,15 +8,12 @@ import HeaderSection from './HeaderSection';
 import CardSection from './CardSection';
 import FeatureSection from './FeatureSection';
 import PeopleSection from './PeopleSection';
-import FrameworkSection from './FrameworkSection';
 import FooterSection from './FooterSection';
 import CustomizeSection from './CustomizeSection';
 import PreBuildDashBoard from './PreBuildDashBoard';
-import StartupProjectSection from './StartupProjectSection';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-// import IncludeSection from './IncludeSection';
-// import RtlInfoSection from './RtlInfoSection';
+
+
+import RtlInfoSection from './RtlInfoSection';
 
 // custom stlye
 const HeaderWrapper = styled('div')(({ theme }) => ({
@@ -38,10 +35,7 @@ const SectionWrapper = styled('div')({
 
 const Landing = () => {
     const theme = useTheme();
-    const navigate = useNavigate();
-    useEffect(() => {
-        navigate('/login');
-    }, []);
+
     return (
         <>
             {/* 1. header and hero section */}
@@ -75,24 +69,9 @@ const Landing = () => {
                 <PeopleSection />
             </SectionWrapper>
 
-            {/* 6. startup section */}
-            <SectionWrapper sx={{ py: 0 }}>
-                <StartupProjectSection />
-            </SectionWrapper>
-
-            {/* 7. inculde section */}
-            {/* <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'dark.dark' : 'background.default' }}>
-                <IncludeSection />
-            </SectionWrapper> */}
-
             {/* 8. multi-language section */}
-            {/* <SectionWrapper sx={{ py: 0 }}>
+            <SectionWrapper sx={{ py: 0 }}>
                 <RtlInfoSection />
-            </SectionWrapper> */}
-
-            {/* 9. framework section */}
-            <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'dark.dark' : 'background.default' }}>
-                <FrameworkSection />
             </SectionWrapper>
 
             {/* 10. footer section */}

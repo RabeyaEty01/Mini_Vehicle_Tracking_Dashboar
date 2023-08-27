@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'store';
 import { setDiscount } from 'store/slices/cart';
 
 const validationSchema = yup.object({
-    code: yup.string().oneOf(['BERRY50', 'FLAT05', 'SUB150', 'UPTO200'], 'Coupon expired').required('Coupon code is required')
+    code: yup.string().oneOf(['FLAT05', 'SUB150', 'UPTO200'], 'Coupon expired').required('Coupon code is required')
 });
 
 // ==============================|| CHECKOUT CART - CART DISCOUNT ||============================== //

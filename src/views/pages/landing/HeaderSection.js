@@ -14,10 +14,8 @@ import useConfig from 'hooks/useConfig';
 
 // assets
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
-import TechLight from 'assets/images/landing/tech-light.svg';
-import TechDark from 'assets/images/landing/tech-dark.svg';
-import dashboard from 'assets/images/landing/hero-dashboard.png';
+// import dashboard from 'assets/images/landing/hero-dashboard.png';
+import dashboard from 'assets/images/landing/hero-dashboard-2.png';
 import widget1 from 'assets/images/landing/hero-widget-1.png';
 import widget2 from 'assets/images/landing/hero-widget-2.png';
 import BgDark from 'assets/images/landing/bg-hero-block-dark.png';
@@ -54,7 +52,7 @@ const HeaderSection = () => {
         () => (
             <HeaderAnimationImage
                 src={theme.palette.mode === 'dark' ? BgDark : BgLight}
-                alt="Berry"
+                alt="ERPPRO"
                 sx={{
                     display: { xs: 'none', md: 'flex' },
                     position: 'absolute',
@@ -88,7 +86,7 @@ const HeaderSection = () => {
                             >
                                 <Stack spacing={1}>
                                     <Typography textAlign={{ xs: 'center', md: 'left' }} variant="h1" sx={headerSX}>
-                                        Use Berry to Power Your Next
+                                        Use ERPPRO to Power Your Next
                                     </Typography>
 
                                     <Typography textAlign={{ xs: 'center', md: 'left' }} variant="h1" color="primary" sx={headerSX}>
@@ -109,7 +107,7 @@ const HeaderSection = () => {
                                     variant="body1"
                                     sx={{ fontSize: { xs: '1rem', md: '1.125rem' } }}
                                 >
-                                    Berry is React based Dashboard template which helps you to build faster and beautiful web applications.
+                                    ERPPRO is React based Dashboard template which helps you to build faster and beautiful web applications.
                                 </Typography>
                             </motion.div>
                         </Grid>
@@ -135,35 +133,16 @@ const HeaderSection = () => {
                                             </Button>
                                         </AnimateButton>
                                     </Grid>
-                                    <Grid item>
-                                        <Button component={Link} href="https://links.codedthemes.com/hsqll" target="_blank" size="large">
-                                            Purchase Now
-                                        </Button>
-                                    </Grid>
+                                    
                                 </Grid>
                             </motion.div>
                         </Grid>
-                        <Grid item xs={12}>
-                            <motion.div
-                                initial={{ opacity: 0, translateY: 550 }}
-                                animate={{ opacity: 1, translateY: 0 }}
-                                transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.6 }}
-                            >
-                                <Stack direction="row" spacing={2} alignItems="center" justifyContent={{ xs: 'center', md: 'flex-start' }}>
-                                    <CardMedia
-                                        component="img"
-                                        image={theme.palette.mode === 'dark' ? TechDark : TechLight}
-                                        alt="Berry Tech"
-                                        sx={{ width: { xs: '75%', sm: '50%', md: '75%' } }}
-                                    />
-                                </Stack>
-                            </motion.div>
-                        </Grid>
+                       
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
                     <Box sx={{ position: 'relative', mt: 8.75, zIndex: 9 }}>
-                        <HeaderImage src={dashboard} alt="Berry" />
+                         <HeaderImage src={dashboard} alt="ERPPRO" /> 
                         <Box
                             sx={{
                                 position: 'absolute',
@@ -178,7 +157,7 @@ const HeaderSection = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.2 }}
                             >
-                                <HeaderAnimationImage src={widget1} alt="Berry" />
+                                 <HeaderAnimationImage src={widget1} alt="ERPPRO" /> 
                             </motion.div>
                         </Box>
                         <Box
@@ -196,7 +175,7 @@ const HeaderSection = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.4 }}
                             >
-                                <HeaderAnimationImage src={widget2} alt="Berry" />
+                                <HeaderAnimationImage src={widget2} alt="ERPPRO" /> 
                             </motion.div>
                         </Box>
                     </Box>

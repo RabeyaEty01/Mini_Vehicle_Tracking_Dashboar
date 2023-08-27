@@ -37,17 +37,8 @@ const basicData = [
         title: 'What Support Includes?',
         content: '6 Months of Support Includes with 1 year of free updates. We are happy to solve your bugs, issue.'
     },
-    {
-        id: 'basic3',
-        title: 'Is Berry Support TypeScript?',
-        content: 'Yes, Berry Support the TypeScript and it is only available in Plus and Extended License.'
-    },
-    {
-        id: 'basic4',
-        title: 'Is there any RoadMap for Berry?',
-        content:
-            'Berry is our flagship React Dashboard Template and we always add the new features for the long run. You can check the Roadmap in Documentation.'
-    }
+    
+   
 ];
 
 // ============================|| SAAS PAGES - FAQs ||============================ //
@@ -92,7 +83,7 @@ const Faqs = () => {
                     <Grid item xs={12} sx={{ position: 'relative', display: { xs: 'none', lg: 'block' } }}>
                         <img
                             src={mailImg}
-                            alt="Berry"
+                            alt="ERPPRO"
                             style={{
                                 marginBottom: -0.625,
                                 position: 'absolute',

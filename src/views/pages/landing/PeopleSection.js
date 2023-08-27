@@ -43,11 +43,7 @@ const PeopleSection = () => {
                         <Masonry columns={{ xs: 1, sm: 2, md: 3, xl: 4 }} spacing={2}>
                             {cardResult}
                         </Masonry>
-                        <Box>
-                            <Button variant="outlined" component={Link} href="https://links.codedthemes.com/hsqll" target="_blank">
-                                Read more
-                            </Button>
-                        </Box>
+                        
                     </Stack>
                 </Grid>
             </Grid>

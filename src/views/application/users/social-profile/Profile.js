@@ -188,23 +188,23 @@ const Profile = () => {
                                 }}
                             >
                                 <Grid item xs={12}>
-                                    <Link href="https://codedthemes.com/" target="_blank" underline="hover">
-                                        <PublicTwoToneIcon color="secondary" /> https://codedthemes.com/
+                                    <Link
+                                        href="https://instagram.com/rabeyaaktar09?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+                                        target="_blank"
+                                        underline="hover"
+                                    >
+                                        <InstagramIcon sx={{ color: theme.palette.orange.dark }} /> https://instagram.com/rabeyaety
                                     </Link>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Link href="https://www.instagram.com/codedthemes" target="_blank" underline="hover">
-                                        <InstagramIcon sx={{ color: theme.palette.orange.dark }} /> https://www.instagram.com/codedthemes
+                                    <Link href="https://www.facebook.com/rabeya.ety.3?mibextid=ZbWKwL" target="_blank" underline="hover">
+                                        <FacebookIcon color="primary" /> https://www.facebook.com/rabeyaety
                                     </Link>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Link href="https://www.facebook.com/codedthemes" target="_blank" underline="hover">
-                                        <FacebookIcon color="primary" /> https://www.facebook.com/codedthemes
-                                    </Link>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Link href="https://in.linkedin.com/company/codedthemes" target="_blank" underline="hover">
-                                        <LinkedInIcon sx={{ color: theme.palette.grey[900] }} /> https://in.linkedin.com/company/codedthemes
+                                    <Link href="https://www.linkedin.com/in/rabeya-aktar-ety-143a77218/" target="_blank" underline="hover">
+                                        <LinkedInIcon sx={{ color: theme.palette.grey[900] }} />{' '}
+                                        https://www.linkedin.com/in/rabeyaety
                                     </Link>
                                 </Grid>
                             </Grid>

@@ -89,7 +89,7 @@ const CouponCode = ({ open, handleClose, setCoupon }) => {
                                         </Grid>
                                         <Grid item>
                                             <AnimateButton>
-                                                <CopyToClipboard text="BERRY50" onCopy={() => setDiscount('BERRY50')}>
+                                                <CopyToClipboard text="FLAT05" onCopy={() => setDiscount('FLAT05')}>
                                                     <Button
                                                         variant="outlined"
                                                         color="secondary"
@@ -101,7 +101,7 @@ const CouponCode = ({ open, handleClose, setCoupon }) => {
                                                             '&:hover': { border: '2px dashed', bgcolor: 'secondary.light' }
                                                         }}
                                                     >
-                                                        BERRY50
+                                                        FLAT05
                                                     </Button>
                                                 </CopyToClipboard>
                                             </AnimateButton>
@@ -177,14 +177,7 @@ const CouponCode = ({ open, handleClose, setCoupon }) => {
                                         </CopyToClipboard>
                                     </AnimateButton>
                                 </Grid>
-                                <Grid item xs={12} sm={8}>
-                                    <Stack spacing={0.25}>
-                                        <Typography variant="subtitle1">Get $150 off on your subscription</Typography>
-                                        <Typography variant="caption">
-                                            When you subscribe to the unlimited consultation plan on berry.
-                                        </Typography>
-                                    </Stack>
-                                </Grid>
+
                                 <Grid item xs={12} sm={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
                                     <AnimateButton>
                                         <CopyToClipboard text="SUB150" onCopy={() => setDiscount('SUB150')}>

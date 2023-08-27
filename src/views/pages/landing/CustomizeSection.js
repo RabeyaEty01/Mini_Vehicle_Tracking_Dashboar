@@ -55,7 +55,7 @@ const CustomizeSection = () => {
                                     width: { xs: '100%', sm: '100%', md: 'calc(100% - 20%)' }
                                 }}
                             >
-                                Berry has made it easy for developers of any skill level to use their product.
+                                Erppro has made it easy for developers of any skill level to use their product.
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -134,20 +134,6 @@ const CustomizeSection = () => {
                                     <Typography sx={listSX}>
                                         <IconCircleCheck size={20} />A theme that can be easily configured on a single page.
                                     </Typography>
-                                    <Stack direction="row">
-                                        <AnimateButton>
-                                            <Button
-                                                startIcon={<LayersTwoToneIcon />}
-                                                sx={{ boxShadow: 'none', my: 4 }}
-                                                variant="contained"
-                                                component={Link}
-                                                href="https://www.figma.com/file/2u2TmauA6lanVMYiywzS1o/berry-figma-v3.0?node-id=0%3A1"
-                                                target="_blank"
-                                            >
-                                                Explore Figma
-                                            </Button>
-                                        </AnimateButton>
-                                    </Stack>
                                 </Grid>
                             </Grid>
                         </Grid>
