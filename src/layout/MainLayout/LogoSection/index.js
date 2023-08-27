@@ -12,8 +12,8 @@ import Logo from 'ui-component/Logo';
 const LogoSection = () => (
     <Link component={RouterLink} to={DASHBOARD_PATH} style={{ textDecoration: 'none' }} aria-label="erppro logo">
         {/* <Logo /> */}
-        <Typography variant="h3" color="secondary" sx={{ textDecoration: 'none', mb: 1, fontStyle: 'italic' }}>
-            ERP@Master
+        <Typography variant="h3" color="secondary" sx={{ textDecoration: 'none', mb: 1 }}>
+            ERPPRO
         </Typography>
         {/* <img src="/happi-logo.svg" width="70px" height="50px" alt="" /> */}
     </Link>

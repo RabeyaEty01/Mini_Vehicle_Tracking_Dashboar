@@ -14,8 +14,10 @@ import useConfig from 'hooks/useConfig';
 
 // assets
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-// import dashboard from 'assets/images/landing/hero-dashboard.png';
-import dashboard from 'assets/images/landing/hero-dashboard-2.png';
+
+import TechLight from 'assets/images/landing/tech-light.svg';
+import TechDark from 'assets/images/landing/tech-dark.svg';
+import dashboard from 'assets/images/landing/hero-dashboard.png';
 import widget1 from 'assets/images/landing/hero-widget-1.png';
 import widget2 from 'assets/images/landing/hero-widget-2.png';
 import BgDark from 'assets/images/landing/bg-hero-block-dark.png';
@@ -142,7 +144,7 @@ const HeaderSection = () => {
                 </Grid>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
                     <Box sx={{ position: 'relative', mt: 8.75, zIndex: 9 }}>
-                         <HeaderImage src={dashboard} alt="ERPPRO" /> 
+                        <HeaderImage src={dashboard} alt="ERPPRO" />
                         <Box
                             sx={{
                                 position: 'absolute',
@@ -157,7 +159,7 @@ const HeaderSection = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.2 }}
                             >
-                                 <HeaderAnimationImage src={widget1} alt="ERPPRO" /> 
+                                <HeaderAnimationImage src={widget1} alt="ERPPRO" />
                             </motion.div>
                         </Box>
                         <Box
@@ -175,7 +177,7 @@ const HeaderSection = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 30, delay: 0.4 }}
                             >
-                                <HeaderAnimationImage src={widget2} alt="ERPPRO" /> 
+                                <HeaderAnimationImage src={widget2} alt="ERPPRO" />
                             </motion.div>
                         </Box>
                     </Box>

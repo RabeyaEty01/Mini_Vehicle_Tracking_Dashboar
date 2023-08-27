@@ -14,8 +14,11 @@ const DashboardAnalytics = Loadable(lazy(() => import('views/dashboard/Analytics
 const WidgetStatistics = Loadable(lazy(() => import('views/widget/Statistics')));
 const WidgetData = Loadable(lazy(() => import('views/widget/Data')));
 const WidgetChart = Loadable(lazy(() => import('views/widget/Chart')));
+
 //application - hrm- routing
 const AppHrmEmployeeSetup = Loadable(lazy(() => import('views/application/hrm-system/EmployeeSetup')));
+const AppHrmEmployeePayrollSetSalary = Loadable(lazy(() => import('views/application/hrm-system/PayrollSetup/SetSalary')));
+const AppHrmEmployeePayrollPayslip = Loadable(lazy(() => import('views/application/hrm-system/PayrollSetup/Payslip')));
 
 // application - customer routing
 const AppCustomerList = Loadable(lazy(() => import('views/application/customer/CustomerList')));
@@ -172,6 +175,14 @@ const MainRoutes = {
         {
             path: '/hrm-system/employee-setup',
             element: <AppHrmEmployeeSetup />
+        },
+        {
+            path: '/hrm-system/payroll-setup/set-salary',
+            element: <AppHrmEmployeePayrollSetSalary />
+        },
+        {
+            path: '/hrm-system/payroll-setup/payslip',
+            element: <AppHrmEmployeePayrollPayslip />
         },
         {
             path: '/customer/customer-list',

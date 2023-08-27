@@ -86,14 +86,14 @@ const application = {
                             id: 'sal-set',
                             title: <FormattedMessage id="sal-set" />,
                             type: 'item',
-                            url: '/app/contact/c-card',
+                            url: '/hrm-system/payroll-setup/set-salary',
                             breadcrumbs: false
                         },
                         {
                             id: 'pay-slip',
                             title: <FormattedMessage id="pay-slip" />,
                             type: 'item',
-                            url: '/app/contact/c-list',
+                            url: '/hrm-system/payroll-setup/payslip',
                             breadcrumbs: false
                         }
                     ]

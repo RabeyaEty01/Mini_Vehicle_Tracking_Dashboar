@@ -11,9 +11,9 @@ import PeopleSection from './PeopleSection';
 import FooterSection from './FooterSection';
 import CustomizeSection from './CustomizeSection';
 import PreBuildDashBoard from './PreBuildDashBoard';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-
-import RtlInfoSection from './RtlInfoSection';
 
 // custom stlye
 const HeaderWrapper = styled('div')(({ theme }) => ({
@@ -35,7 +35,10 @@ const SectionWrapper = styled('div')({
 
 const Landing = () => {
     const theme = useTheme();
-
+    const navigate = useNavigate();
+    useEffect(() => {
+        navigate('/login');
+    }, []);
     return (
         <>
             {/* 1. header and hero section */}
@@ -69,11 +72,11 @@ const Landing = () => {
                 <PeopleSection />
             </SectionWrapper>
 
-            {/* 8. multi-language section */}
-            <SectionWrapper sx={{ py: 0 }}>
-                <RtlInfoSection />
-            </SectionWrapper>
+         
+           
 
+           
+         
             {/* 10. footer section */}
             <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'background.default' : 'dark.900', pb: 0 }}>
                 <FooterSection />
