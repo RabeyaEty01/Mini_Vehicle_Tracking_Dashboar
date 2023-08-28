@@ -1,11 +1,11 @@
 import application from './application';
 import dashboard from './dashboard';
-import widgets from './widgets';
+// import widgets from './widgets';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, widgets, application]
+    items: [dashboard, application]
 };
 
 export default menuItems;
