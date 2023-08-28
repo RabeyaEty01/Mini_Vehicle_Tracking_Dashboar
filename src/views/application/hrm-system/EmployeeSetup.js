@@ -1,9 +1,9 @@
 import * as React from 'react';
 // material-ui
-import { Box, Button } from '@mui/material';
+import { Box, Button, Tooltip } from '@mui/material';
 // project imports
 // assets
-import { DeleteOutline, EditTwoTone, Refresh } from '@mui/icons-material';
+import { DeleteOutline, EditTwoTone, FilterList, FilterListOff, Refresh } from '@mui/icons-material';
 import { useTheme } from '@mui/styles';
 import { IconFileExport } from '@tabler/icons';
 import MaterialTable from 'material-table';
@@ -60,13 +60,52 @@ const EmployeeSetup = () => {
     ];
 
     return (
-        <MainCard title="Employee Setup List" content={false}>
+        <MainCard title="Manage Employee" content={false}>
             <Box>
                 <MaterialTable
                     tableRef={tableRef}
                     style={{ boxShadow: 'none' }}
                     columns={columns}
                     actions={[
+                        {
+                            icon: () => (
+                                <EditTwoTone
+                                    fontSize="large"
+                                    style={{ backgroundColor: theme.palette.secondary.main }}
+                                    size="large"
+                                    aria-label="edit"
+                                />
+                            ),
+                            tooltip: 'Edit',
+                            isFreeAction: false
+                        },
+                        {
+                            icon: () => (
+                                <Tooltip
+                                    onClick={() => {
+                                        setSort(!sort);
+                                    }}
+                                >
+                                    {sort ? (
+                                        <FilterList
+                                            fontSize="large"
+                                            style={{ backgroundColor: theme.palette.secondary.main }}
+                                            size="large"
+                                            aria-label="filter"
+                                        />
+                                    ) : (
+                                        <FilterListOff
+                                            fontSize="large"
+                                            style={{ backgroundColor: theme.palette.secondary.main }}
+                                            size="large"
+                                            aria-label="filter"
+                                        />
+                                    )}
+                                </Tooltip>
+                            ),
+                            tooltip: 'Filter',
+                            isFreeAction: true
+                        },
                         {
                             icon: () => (
                                 <Refresh
@@ -81,23 +120,6 @@ const EmployeeSetup = () => {
                         },
                         {
                             icon: () => (
-                                <EditTwoTone
-                                    fontSize="large"
-                                    style={{ backgroundColor: theme.palette.secondary.main }}
-                                    size="large"
-                                    aria-label="edit"
-                                />
-                            ),
-                            tooltip: 'Edit',
-                            isFreeAction: false
-
-                            // onClick: (event, rowData) => {
-                            //     setIsUpdateOpen(true);
-                            //     setForUpdateSelectedPromotion(rowData);
-                            // }
-                        },
-                        {
-                            icon: () => (
                                 <DeleteOutline
                                     fontSize="large"
                                     style={{ backgroundColor: theme.palette.error.main }}
@@ -107,11 +129,6 @@ const EmployeeSetup = () => {
                             ),
                             tooltip: 'Delete',
                             isFreeAction: false
-
-                            // onClick: (event, rowData) => {
-                            //     setIsUpdateOpen(true);
-                            //     setForUpdateSelectedPromotion(rowData);
-                            // }
                         }
                     ]}
                     data={employeeSetUpData}
@@ -134,8 +151,8 @@ const EmployeeSetup = () => {
                         pageSizeOptions: [5, 10, 20, 50, 100],
                         debounceInterval: 400,
                         draggable: false,
-                        exportFileName: 'Employee List',
-                        exportDelimiter: 'Employee List',
+                        exportFileName: 'Employee',
+                        exportDelimiter: 'Employee',
                         toolbarButtonAlignment: 'left',
                         actionsColumnIndex: -1,
                         toolbar: true,

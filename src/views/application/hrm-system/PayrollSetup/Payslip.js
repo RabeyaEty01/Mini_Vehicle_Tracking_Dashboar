@@ -1,9 +1,9 @@
 import * as React from 'react';
 // material-ui
-import { Box, Button } from '@mui/material';
+import { Box, Button, Tooltip } from '@mui/material';
 // project imports
 // assets
-import { DeleteOutline, EditTwoTone, Refresh } from '@mui/icons-material';
+import { DeleteOutline, EditTwoTone, FilterList, FilterListOff, Refresh } from '@mui/icons-material';
 import { useTheme } from '@mui/styles';
 import { IconFileExport } from '@tabler/icons';
 import MaterialTable from 'material-table';
@@ -75,13 +75,40 @@ const Payslip = () => {
     ];
 
     return (
-        <MainCard title="Set Salary List" content={false}>
+        <MainCard title="Payslip" content={false}>
             <Box>
                 <MaterialTable
                     tableRef={tableRef}
                     style={{ boxShadow: 'none' }}
                     columns={columns}
                     actions={[
+                        {
+                            icon: () => (
+                                <Tooltip
+                                    onClick={() => {
+                                        setSort(!sort);
+                                    }}
+                                >
+                                    {sort ? (
+                                        <FilterList
+                                            fontSize="large"
+                                            style={{ backgroundColor: theme.palette.secondary.main }}
+                                            size="large"
+                                            aria-label="filter"
+                                        />
+                                    ) : (
+                                        <FilterListOff
+                                            fontSize="large"
+                                            style={{ backgroundColor: theme.palette.secondary.main }}
+                                            size="large"
+                                            aria-label="filter"
+                                        />
+                                    )}
+                                </Tooltip>
+                            ),
+                            tooltip: 'Filter',
+                            isFreeAction: true
+                        },
                         {
                             icon: () => (
                                 <Refresh
