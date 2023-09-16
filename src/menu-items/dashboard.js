@@ -24,41 +24,36 @@ const dashboard = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: '/dashboard/default',
-            icon: icons.IconLayoutDashboard,
-            breadcrumbs: false
+            url: '/',
+            icon: icons.IconLayoutDashboard
         },
         {
             id: 'markets',
             title: 'Markets',
             type: 'item',
-            url: '#',
-            icon: icons.CandlestickChart,
-            breadcrumbs: false
+            url: '#markets',
+            icon: icons.CandlestickChart
         },
         {
             id: 'transaction',
             title: 'Transactions',
             type: 'item',
-            url: '#',
-            icon: icons.IconArrowsExchange,
-            breadcrumbs: false
+            url: '#trasaction',
+            icon: icons.IconArrowsExchange
         },
         {
             id: 'profile',
             title: 'Profile',
             type: 'item',
-            url: '#',
-            icon: icons.IconUser,
-            breadcrumbs: false
+            url: '#profile',
+            icon: icons.IconUser
         },
         {
             id: 'setting',
             title: 'Settings',
             type: 'item',
-            url: '#',
-            icon: icons.Settings,
-            breadcrumbs: false
+            url: '#settings',
+            icon: icons.Settings
         }
     ]
 };

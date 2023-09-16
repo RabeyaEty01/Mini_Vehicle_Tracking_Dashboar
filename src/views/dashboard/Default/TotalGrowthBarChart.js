@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import { Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // third-party
 import ApexCharts from 'apexcharts';
@@ -11,9 +11,9 @@ import Chart from 'react-apexcharts';
 
 // project imports
 import useConfig from 'hooks/useConfig';
-import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
-import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
+import MainCard from 'ui-component/cards/MainCard';
+import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 
 // chart data
 import chartData from './chart-data/total-growth-bar-chart';
@@ -38,7 +38,7 @@ const status = [
 const TotalGrowthBarChart = ({ isLoading }) => {
     const [value, setValue] = React.useState('today');
     const theme = useTheme();
-    const { navType, rtlLayout } = useConfig();
+    const { navType } = useConfig();
 
     const { primary } = theme.palette.text;
     const darkLight = theme.palette.dark.light;
@@ -122,7 +122,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item xs={12} sx={{ '& .apexcharts-legend-text': { marginLeft: rtlLayout ? '8px' : 'initial' } }}>
+                        <Grid item xs={12} sx={{ '& .apexcharts-legend-text': { marginLeft: 'initial' } }}>
                             <Chart {...chartData} />
                         </Grid>
                     </Grid>

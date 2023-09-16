@@ -8,18 +8,13 @@ import { styled, useTheme } from '@mui/material/styles';
 // project imports
 import LAYOUT_CONST from 'constant';
 import useConfig from 'hooks/useConfig';
-import navigation from 'menu-items';
+
 import { useDispatch, useSelector } from 'store';
 import { drawerWidth } from 'store/constant';
 import { openDrawer } from 'store/slices/menu';
-import Breadcrumbs from 'ui-component/extended/Breadcrumbs';
-import Customization from '../Customization';
-import Header from './Header';
-import HorizontalBar from './HorizontalBar';
-import Sidebar from './Sidebar';
 
-// assets
-import { IconChevronRight } from '@tabler/icons';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open, layout }) => ({
@@ -135,21 +130,15 @@ const MainLayout = () => {
                     {header}
                 </AppBar>
 
-                {/* horizontal menu-list bar */}
-                {layout === LAYOUT_CONST.HORIZONTAL_LAYOUT && !matchDownMd && <HorizontalBar />}
-
                 {/* drawer */}
                 {(layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd) && <Sidebar />}
             </Box>
             {/* main content */}
             <Main theme={theme} open={drawerOpen} layout={layout}>
                 <Container maxWidth={container ? 'lg' : false} {...(!container && { sx: { px: { xs: 0 } } })}>
-                    {/* breadcrumb */}
-                    {/* <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign /> */}
                     <Outlet />
                 </Container>
             </Main>
-            <Customization />
         </Box>
     );
 };

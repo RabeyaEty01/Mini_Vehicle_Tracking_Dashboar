@@ -1,5 +1,5 @@
 // material-ui
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, useMediaQuery } from '@mui/material';
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // project imports
@@ -8,8 +8,7 @@ import SubCard from 'ui-component/cards/SubCard';
 
 const Layout = () => {
     const theme = useTheme();
-    const matchDownMD = useMediaQuery(theme.breakpoints.down('md'));
-    const { layout, drawerType, navType, rtlLayout, onChangeMenuType, onChangeLayout, onChangeDrawer, onChangeRTL } = useConfig();
+    const { navType, onChangeMenuType } = useConfig();
 
     return (
         <SubCard title="Layout">
@@ -42,35 +41,6 @@ const Layout = () => {
                     />
                 </RadioGroup>
             </FormControl>
-            <FormControl component="fieldset" sx={{ mt: 2 }}>
-                <FormLabel component="legend">Menu Orientation</FormLabel>
-                <RadioGroup
-                    aria-label="orientaion"
-                    value={layout}
-                    onChange={(e) => onChangeLayout(e.target.value)}
-                    name="row-radio-buttons-group"
-                >
-                    <FormControlLabel
-                        value="vertical"
-                        control={<Radio />}
-                        label="Vertical"
-                        sx={{
-                            '& .MuiSvgIcon-root': { fontSize: 28 },
-                            '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
-                        }}
-                    />
-                    <FormControlLabel
-                        value="horizontal"
-                        control={<Radio />}
-                        label="Horizontal"
-                        sx={{
-                            '& .MuiSvgIcon-root': { fontSize: 28 },
-                            '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
-                        }}
-                    />
-                </RadioGroup>
-            </FormControl>
-
         </SubCard>
     );
 };

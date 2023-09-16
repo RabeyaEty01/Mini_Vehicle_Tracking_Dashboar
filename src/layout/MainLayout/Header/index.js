@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 import LAYOUT_CONST from 'constant';
 import useConfig from 'hooks/useConfig';
 import LogoSection from '../LogoSection';
-import MobileSection from './MobileSection';
 import NotificationSection from './NotificationSection';
 import ProfileSection from './ProfileSection';
 import SearchSection from './SearchSection';
@@ -77,11 +76,6 @@ const Header = () => {
             {/* notification & profile */}
             <NotificationSection />
             <ProfileSection />
-
-            {/* mobile header */}
-            <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-                <MobileSection />
-            </Box>
         </>
     );
 };

@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // project imports
-import NavGroup from './NavGroup';
-import useConfig from 'hooks/useConfig';
-import LAYOUT_CONST from 'constant';
 import { HORIZONTAL_MAX_ITEM } from 'config';
-import hasPermission from 'utils/adminPermission/hasPermission';
-import { useState } from 'react';
+import LAYOUT_CONST from 'constant';
+import useConfig from 'hooks/useConfig';
 import menuItems from 'menu-items';
+import { useState } from 'react';
+import NavGroup from './NavGroup';
 
 // ==============================|| SIDEBAR MENU LIST ||============================== //
 const MenuList = () => {
@@ -23,9 +22,6 @@ const MenuList = () => {
         let allRoutes = {
             items: menuItems.items.map((group) => {
                 const filteredChildren = group.children.filter((item) => {
-                    if (item.permission !== undefined) {
-                        return hasPermission(item.permission);
-                    }
                     return true; // Include items without permission array
                 });
                 return { ...group, children: filteredChildren };
