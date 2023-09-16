@@ -1,22 +1,22 @@
-import React, { useMemo, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 // material-ui
-import { styled, useTheme } from '@mui/material/styles';
 import { AppBar, Box, Container, CssBaseline, Toolbar, useMediaQuery } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 
 // project imports
+import LAYOUT_CONST from 'constant';
+import useConfig from 'hooks/useConfig';
+import navigation from 'menu-items';
+import { useDispatch, useSelector } from 'store';
+import { drawerWidth } from 'store/constant';
+import { openDrawer } from 'store/slices/menu';
 import Breadcrumbs from 'ui-component/extended/Breadcrumbs';
 import Customization from '../Customization';
 import Header from './Header';
 import HorizontalBar from './HorizontalBar';
 import Sidebar from './Sidebar';
-import navigation from 'menu-items';
-import LAYOUT_CONST from 'constant';
-import useConfig from 'hooks/useConfig';
-import { drawerWidth } from 'store/constant';
-import { openDrawer } from 'store/slices/menu';
-import { useDispatch, useSelector } from 'store';
 
 // assets
 import { IconChevronRight } from '@tabler/icons';
@@ -34,20 +34,20 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
         [theme.breakpoints.up('md')]: {
             marginLeft: layout === LAYOUT_CONST.VERTICAL_LAYOUT ? -(drawerWidth - 72) : '20px',
             width: `calc(100% - ${drawerWidth}px)`,
-            marginTop: layout === 'horizontal' ? 135 : 88
+            marginTop: layout === 'horizontal' ? 135 : 98
         },
         [theme.breakpoints.down('md')]: {
             marginLeft: '20px',
             width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px',
-            marginTop: 88
+            marginTop: 98
         },
         [theme.breakpoints.down('sm')]: {
             marginLeft: '10px',
             width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px',
             marginRight: '10px',
-            marginTop: 88
+            marginTop: 98
         }
     }),
     ...(open && {
@@ -56,20 +56,20 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
             duration: theme.transitions.duration.shorter + 200
         }),
         marginLeft: layout === 'horizontal' ? '20px' : 0,
-        marginTop: layout === 'horizontal' ? 135 : 88,
+        marginTop: layout === 'horizontal' ? 135 : 98,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         width: `calc(100% - ${drawerWidth}px)`,
         [theme.breakpoints.up('md')]: {
-            marginTop: layout === 'horizontal' ? 135 : 88
+            marginTop: layout === 'horizontal' ? 135 : 98
         },
         [theme.breakpoints.down('md')]: {
             marginLeft: '20px',
-            marginTop: 88
+            marginTop: 98
         },
         [theme.breakpoints.down('sm')]: {
             marginLeft: '10px',
-            marginTop: 88
+            marginTop: 98
         }
     })
 }));
@@ -111,7 +111,7 @@ const MainLayout = () => {
 
     const header = useMemo(
         () => (
-            <Toolbar sx={{ p: condition ? '10px' : '16px' }}>
+            <Toolbar sx={{ p: condition ? '19px' : '25px' }}>
                 <Header />
             </Toolbar>
         ),
@@ -122,30 +122,30 @@ const MainLayout = () => {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
+            <Box>
+                {/* header */}
+                <AppBar
+                    position="fixed"
+                    elevation={0}
+                    sx={{
+                        bgcolor: 'background.default',
+                        transition: drawerOpen ? theme.transitions.create('width') : 'none'
+                    }}
+                >
+                    {header}
+                </AppBar>
 
-            {/* header */}
-            <AppBar
-                position="fixed"
-                elevation={0}
-                sx={{
-                    bgcolor: 'background.default',
-                    transition: drawerOpen ? theme.transitions.create('width') : 'none'
-                }}
-            >
-                {header}
-            </AppBar>
+                {/* horizontal menu-list bar */}
+                {layout === LAYOUT_CONST.HORIZONTAL_LAYOUT && !matchDownMd && <HorizontalBar />}
 
-            {/* horizontal menu-list bar */}
-            {layout === LAYOUT_CONST.HORIZONTAL_LAYOUT && !matchDownMd && <HorizontalBar />}
-
-            {/* drawer */}
-            {(layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd) && <Sidebar />}
-
+                {/* drawer */}
+                {(layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd) && <Sidebar />}
+            </Box>
             {/* main content */}
             <Main theme={theme} open={drawerOpen} layout={layout}>
                 <Container maxWidth={container ? 'lg' : false} {...(!container && { sx: { px: { xs: 0 } } })}>
                     {/* breadcrumb */}
-                    <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign />
+                    {/* <Breadcrumbs separator={IconChevronRight} navigation={navigation} icon title rightAlign /> */}
                     <Outlet />
                 </Container>
             </Main>

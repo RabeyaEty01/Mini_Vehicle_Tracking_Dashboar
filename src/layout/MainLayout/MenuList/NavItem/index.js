@@ -3,8 +3,8 @@ import { forwardRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 // material-ui
+import { Avatar, ButtonBase, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Avatar, ButtonBase, Chip, IconButton, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
 
 // project imports
 import LAYOUT_CONST from 'constant';
@@ -31,16 +31,7 @@ const NavItem = ({ item, level, parentId }) => {
 
     const Icon = item?.icon;
     const itemIcon = item?.icon ? (
-        <Icon
-            stroke={1.5}
-            size={drawerOpen ? (isSelected ? '26px' : '20px') : isSelected ? '26px' : '24px'}
-            style={{
-                background: isSelected ? theme.palette.background.paper : null,
-                borderRadius: `${borderRadius}px`,
-                padding: isSelected ? '0px 5px' : '0px',
-                color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary
-            }}
-        />
+        <Icon stroke={2} size="20px" style={{ color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary }} />
     ) : (
         <FiberManualRecordIcon
             sx={{
@@ -93,29 +84,22 @@ const NavItem = ({ item, level, parentId }) => {
                     sx={{
                         zIndex: 1201,
                         borderRadius: `${borderRadius}px`,
-                        mb: 0.5,
+                        mb: 1.25,
                         pl: drawerOpen ? `${level * 24}px` : 1.25,
                         ...(drawerOpen &&
                             level === 1 &&
                             theme.palette.mode !== 'dark' && {
                                 '&:hover': {
                                     background: theme.palette.secondary.light,
-
                                     '& .MuiListItemIcon-root': {
                                         '& svg': {
-                                            width: '26px',
-                                            height: '26px',
-                                            background: theme.palette.background.paper,
-                                            borderRadius: `${borderRadius}px`,
-                                            padding: '0px 5px !important',
-                                            color: 'rgb(236, 64, 122) !important'
+                                            color: `${theme.palette.secondary.main} !important`
                                         }
                                     }
                                 },
                                 '&.Mui-selected': {
                                     background: theme.palette.secondary.light,
                                     color: iconSelectedColor,
-
                                     '&:hover': {
                                         color: iconSelectedColor,
                                         background: theme.palette.secondary.light
@@ -125,7 +109,12 @@ const NavItem = ({ item, level, parentId }) => {
                         ...((!drawerOpen || level !== 1) && {
                             py: level === 1 ? 0 : 1,
                             '&:hover': {
-                                bgcolor: 'transparent'
+                                bgcolor: 'transparent',
+                                '& .MuiListItemIcon-root': {
+                                    '& svg': {
+                                        color: `${theme.palette.secondary.main} !important`
+                                    }
+                                }
                             },
                             '&.Mui-selected': {
                                 '&:hover': {
@@ -138,34 +127,20 @@ const NavItem = ({ item, level, parentId }) => {
                     selected={isSelected}
                     onClick={() => itemHandler(item.id)}
                 >
-                    <ButtonBase
-                        sx={{
-                            borderRadius: `${borderRadius}px`
-                        }}
-                        disableRipple={drawerOpen}
-                        aria-label="pages icon"
-                    >
+                    <ButtonBase sx={{ borderRadius: `${borderRadius}px` }} disableRipple={drawerOpen} aria-label="pages icon">
                         <ListItemIcon
                             sx={{
-                                minWidth: level === 1 ? 36 : 18,
+                                minWidth: level === 1 ? 28.14 : 20,
                                 color: isSelected ? iconSelectedColor : textColor,
                                 ...(!drawerOpen &&
                                     level === 1 && {
                                         borderRadius: `${borderRadius}px`,
-                                        width: 46,
-                                        height: 46,
+                                        width: 34,
+                                        height: 34,
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         '&:hover': {
-                                            bgcolor: theme.palette.mode === 'dark' ? theme.palette.secondary.main + 25 : 'secondary.light',
-                                            '& svg': {
-                                                width: '26px',
-                                                height: '26px',
-                                                background: theme.palette.background.paper,
-                                                borderRadius: `${borderRadius}px`,
-                                                padding: '0px 5px !important',
-                                                color: 'rgb(236, 64, 122) !important'
-                                            }
+                                            bgcolor: theme.palette.mode === 'dark' ? theme.palette.secondary.main + 25 : 'secondary.light'
                                         },
                                         ...(isSelected && {
                                             bgcolor: theme.palette.mode === 'dark' ? theme.palette.secondary.main + 25 : 'secondary.light',
@@ -184,7 +159,7 @@ const NavItem = ({ item, level, parentId }) => {
                     {(drawerOpen || (!drawerOpen && level !== 1)) && (
                         <ListItemText
                             primary={
-                                <Typography variant={isSelected ? 'h5' : 'body1'} color="inherit">
+                                <Typography variant={isSelected ? 'h4' : 'body1'} color="inherit">
                                     {item.title}
                                 </Typography>
                             }

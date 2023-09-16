@@ -1,22 +1,19 @@
 import { useState } from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import { Drawer, Fab, Grid, IconButton, Tooltip } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { IconSettings } from '@tabler/icons';
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 // project imports
+import { gridSpacing } from 'store/constant';
+import AnimateButton from 'ui-component/extended/AnimateButton';
 import BorderRadius from './BorderRadius';
 import Layout from './Layout';
 import PresetColor from './PresetColor';
-import FontFamily from './FontFamily';
-import InputFilled from './InputFilled';
-import BoxContainer from './BoxContainer';
-import AnimateButton from 'ui-component/extended/AnimateButton';
-import { gridSpacing } from 'store/constant';
 
 // ==============================|| LIVE CUSTOMIZATION ||============================== //
 
@@ -32,7 +29,7 @@ const Customization = () => {
     return (
         <>
             {/* toggle button */}
-            {/* <Tooltip title="Live Customize">
+            <Tooltip title="Live Customize">
                 <Fab
                     component="div"
                     onClick={handleToggle}
@@ -58,7 +55,7 @@ const Customization = () => {
                         </IconButton>
                     </AnimateButton>
                 </Fab>
-            </Tooltip> */}
+            </Tooltip>
 
             <Drawer
                 anchor="right"
@@ -81,21 +78,10 @@ const Customization = () => {
                                 {/* Theme Preset Color */}
                                 <PresetColor />
                             </Grid>
-                            <Grid item xs={12}>
-                                {/* font family */}
-                                <FontFamily />
-                            </Grid>
+
                             <Grid item xs={12}>
                                 {/* border radius */}
                                 <BorderRadius />
-                            </Grid>
-                            <Grid item xs={12}>
-                                {/* filled with outline textfield */}
-                                <InputFilled />
-                            </Grid>
-                            <Grid item xs={12}>
-                                {/* box container */}
-                                <BoxContainer />
                             </Grid>
                         </Grid>
                     </PerfectScrollbar>

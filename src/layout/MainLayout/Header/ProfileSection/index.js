@@ -37,7 +37,7 @@ import useAuth from 'hooks/useAuth';
 import User1 from 'assets/images/users/user-round.svg';
 
 // assets
-import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
+import { IconLogout, IconSearch, IconSettings, IconUser,IconDotsVertical } from '@tabler/icons';
 import useConfig from 'hooks/useConfig';
 
 // ==============================|| PROFILE MENU ||============================== //
@@ -98,7 +98,7 @@ const ProfileSection = () => {
                 sx={{
                     height: '48px',
                     alignItems: 'center',
-                    borderRadius: '27px',
+                    borderRadius: '12.63px',
                     transition: 'all .2s ease-in-out',
                     borderColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.primary.light,
                     backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.primary.light,
@@ -129,7 +129,7 @@ const ProfileSection = () => {
                         alt="user-account"
                     />
                 }
-                label={<IconSettings stroke={1.5} size="24px" color={theme.palette.primary.main} />}
+                label={<IconDotsVertical stroke={1.5} size="24px" color={theme.palette.primary.main} />}
                 variant="outlined"
                 ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}

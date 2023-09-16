@@ -5,16 +5,22 @@ const Typography = (theme, borderRadius, fontFamily) => ({
         color: theme.palette.grey[600],
         fontSize: '0.75rem'
     },
+   
     h5: {
         fontSize: '0.875rem',
         color: theme.palette.grey[600],
         fontWeight: 500
     },
     h4: {
-        fontSize: '1rem',
+        fontSize: '1.0994rem',
         color: theme.palette.grey[600],
         fontWeight: 600
     },
+    // h4: {
+    //     fontSize: '1rem',
+    //     color: theme.palette.grey[600],
+    //     fontWeight: 600
+    // },
     h3: {
         fontSize: '1.25rem',
         color: theme.palette.grey[600],

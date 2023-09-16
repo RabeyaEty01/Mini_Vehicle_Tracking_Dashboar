@@ -1,47 +1,65 @@
 // third-party
-import { FormattedMessage } from 'react-intl';
 
 // assets
-import { IconDashboard, IconDeviceAnalytics } from '@tabler/icons';
-import permissions from 'utils/adminPermission/permissions';
+import { CandlestickChart, Settings } from '@mui/icons-material';
+import { IconArrowsExchange, IconLayoutDashboard, IconUser } from '@tabler/icons';
 
 const icons = {
-    IconDashboard,
-    IconDeviceAnalytics
+    IconLayoutDashboard,
+    CandlestickChart,
+    Settings,
+    IconUser,
+    IconArrowsExchange
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
 
 const dashboard = {
     id: 'dashboard',
-    title: <FormattedMessage id="dashboard" />,
-    icon: icons.IconDashboard,
+    title: 'Dashboard',
+    icon: icons.IconLayoutDashboard,
     type: 'group',
     children: [
         {
-            id: 'default',
-            title: <FormattedMessage id="default" />,
+            id: 'dashboard',
+            title: 'Dashboard',
             type: 'item',
             url: '/dashboard/default',
-            icon: icons.IconDashboard,
+            icon: icons.IconLayoutDashboard,
             breadcrumbs: false
         },
         {
-            id: 'analytics',
-            title: <FormattedMessage id="analytics" />,
+            id: 'markets',
+            title: 'Markets',
             type: 'item',
-            url: '/dashboard/analytics',
-            icon: icons.IconDeviceAnalytics,
+            url: '#',
+            icon: icons.CandlestickChart,
+            breadcrumbs: false
+        },
+        {
+            id: 'transaction',
+            title: 'Transactions',
+            type: 'item',
+            url: '#',
+            icon: icons.IconArrowsExchange,
+            breadcrumbs: false
+        },
+        {
+            id: 'profile',
+            title: 'Profile',
+            type: 'item',
+            url: '#',
+            icon: icons.IconUser,
+            breadcrumbs: false
+        },
+        {
+            id: 'setting',
+            title: 'Settings',
+            type: 'item',
+            url: '#',
+            icon: icons.Settings,
             breadcrumbs: false
         }
-        // {
-        //     id: 'default',
-        //     title: <FormattedMessage id="default" />,
-        //     type: 'item',
-        //     url: '/dashboard/default',
-        //     icon: icons.IconDashboard,
-        //     breadcrumbs: false
-        // },
     ]
 };
 

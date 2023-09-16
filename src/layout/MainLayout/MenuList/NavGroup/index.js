@@ -3,7 +3,6 @@ import { Fragment, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // material-ui
-import { styled, useTheme } from '@mui/material/styles';
 import {
     Box,
     ClickAwayListener,
@@ -17,18 +16,19 @@ import {
     Typography,
     useMediaQuery
 } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 
 // third-party
 import { FormattedMessage } from 'react-intl';
 
 // project imports
 import LAYOUT_CONST from 'constant';
-import NavCollapse from '../NavCollapse';
-import NavItem from '../NavItem';
 import useConfig from 'hooks/useConfig';
-import Transitions from 'ui-component/extended/Transitions';
 import { dispatch, useSelector } from 'store';
 import { activeID } from 'store/slices/menu';
+import Transitions from 'ui-component/extended/Transitions';
+import NavCollapse from '../NavCollapse';
+import NavItem from '../NavItem';
 
 // assets
 import { IconChevronDown, IconChevronRight, IconMinusVertical } from '@tabler/icons';
@@ -123,7 +123,7 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId }) => {
     };
 
     const Icon = currentItem?.icon;
-    const itemIcon = currentItem?.icon ? <Icon stroke={1.5} size="20px" /> : null;
+    const itemIcon = currentItem?.icon ? <Icon stroke={2} size="20px" /> : null;
 
     // menu list collapse & items
     const items = currentItem.children?.map((menu) => {
@@ -143,11 +143,6 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId }) => {
 
     const moreItems = remItems.map((itemRem, i) => (
         <Fragment key={i}>
-            {itemRem.title && (
-                <Typography variant="caption" sx={{ pl: 2 }}>
-                    {itemRem.title}
-                </Typography>
-            )}
             {itemRem.elements?.map((menu) => {
                 switch (menu.type) {
                     case 'collapse':
@@ -177,7 +172,7 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId }) => {
                             currentItem.title &&
                             drawerOpen && (
                                 <Typography variant="caption" sx={{ ...theme.typography.menuCaption }} display="block" gutterBottom>
-                                    {currentItem.title}
+                                    {/* {currentItem.title} */}
                                     {currentItem.caption && (
                                         <Typography
                                             variant="caption"
@@ -192,11 +187,11 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId }) => {
                             )
                         }
                     >
-                        {items} 
+                        {items}
                     </List>
 
                     {/* group divider */}
-                    {drawerOpen && <Divider sx={{ mt: 0.25, mb: 1.25 }} />}
+                    {drawerOpen && currentItem.title && <Divider sx={{ mt: 3.25, mb: 3.5 }} />}
                 </>
             ) : (
                 <List>

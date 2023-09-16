@@ -1,11 +1,10 @@
-import application from './application';
 import dashboard from './dashboard';
-// import widgets from './widgets';
+import support from './support';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, application]
+    items: [dashboard, support]
 };
 
 export default menuItems;

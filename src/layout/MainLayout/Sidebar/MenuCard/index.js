@@ -130,3 +130,4 @@ const MenuCard = () => {
 };
 
 export default memo(MenuCard);
+

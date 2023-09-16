@@ -210,69 +210,6 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                 }
             }
         },
-
-        MuiToolbar: {
-            styleOverrides: {
-                root: {
-                    '& span': {
-                        '& .MuiIconButton-root': {
-                            backgroundColor: 'inherit',
-
-                            '&:hover': {
-                                backgroundColor: 'transparent'
-                            },
-                            '& svg': {
-                                padding: '8px',
-                                height: '34px',
-                                width: '34px',
-                                borderRadius: '29%',
-                                color: 'white'
-                            }
-                        }
-                    },
-
-                    '& .MuiFormControl-root': {
-                        background: outlinedFilled ? bgColor : 'transparent',
-                        borderRadius: `${borderRadius}px`,
-                        border: '1px solid',
-                        borderColor: mode === 'dark' ? theme.palette.text.primary + 28 : theme.palette.primary.light,
-                        '&:hover': {
-                            borderColor: theme.palette.grey[400]
-                        },
-                        '& .MuiInputBase-root': {
-                            fontWeight: 500,
-                            outline: 0,
-                            background: outlinedFilled ? bgColor : 'transparent',
-                            padding: '6px 0px !important',
-                            borderRadius: `${borderRadius}px`,
-                            '&:before': {
-                                border: '0 !important'
-                            },
-                            '&:after': {
-                                border: '0 !important'
-                            },
-                            inputAdornedStart: {
-                                paddingLeft: 4
-                            }
-                        },
-                        notchedOutline: {
-                            display: 'none',
-                            borderRadius: `${borderRadius}px`
-                        }
-                    }
-                }
-            }
-        },
-
-        MuiTableSortLabel: {
-            styleOverrides: {
-                root: {
-                    '& .MuiTableSortLabel-icon': {
-                        opacity: 0.5
-                    }
-                }
-            }
-        },
         MuiAvatar: {
             styleOverrides: {
                 root: {
@@ -347,41 +284,14 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                 }
             }
         },
-        MuiTableRow: {
-            styleOverrides: {
-                root: {
-                    '& .MuiTableCell-head': {
-                        textTransform: 'uppercase',
-                        textWrap: 'nowrap'
-                    }
-                }
-            }
-        },
-
         MuiTableCell: {
             styleOverrides: {
                 root: {
                     borderColor: mode === 'dark' ? theme.palette.text.primary + 15 : theme.palette.grey[200],
-                    fontSize: '0.875rem',
-                    color: theme.palette.grey[600],
-                    fontWeight: 500,
-                    textWrap: 'nowrap'
-                }
-            }
-        },
-
-        MuiTableBody: {
-            styleOverrides: {
-                root: {
-                    '& .MuiIconButton-root': {
-                        backgroundColor: 'inherit',
-                        color: 'white',
-                        '& .MuiSvgIcon-root': {
-                            padding: '8px',
-                            height: '30px',
-                            width: '30px',
-                            borderRadius: '29%'
-                        }
+                    '&.MuiTableCell-head': {
+                        fontSize: '0.875rem',
+                        color: theme.palette.grey[600],
+                        fontWeight: 500
                     }
                 }
             }
@@ -403,3 +313,4 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
         }
     };
 }
+
