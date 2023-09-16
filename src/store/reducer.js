@@ -4,21 +4,19 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 // project imports
-import cartReducer from './slices/cart';
 import menuReducer from './slices/menu';
 
 // ==============================|| COMBINE REDUCER ||============================== //
 
 const reducer = combineReducers({
-    cart: persistReducer(
+    menu: persistReducer(
         {
-            key: 'cart',
+            key: 'menu',
             storage,
             keyPrefix: 'erppro-'
         },
-        cartReducer
-    ),
-    menu: menuReducer
+        menuReducer
+    )
 });
 
 export default reducer;
