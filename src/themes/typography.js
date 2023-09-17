@@ -1,11 +1,11 @@
 const Typography = (theme, borderRadius, fontFamily) => ({
-    fontFamily,
+    fontFamily: `'Inter', sans-serif`,
     h6: {
         fontWeight: 500,
         color: theme.palette.grey[600],
         fontSize: '0.75rem'
     },
-   
+
     h5: {
         fontSize: '0.875rem',
         color: theme.palette.grey[600],
@@ -14,7 +14,7 @@ const Typography = (theme, borderRadius, fontFamily) => ({
     h4: {
         fontSize: '1.0994rem',
         color: theme.palette.grey[600],
-        fontWeight: 600
+        fontWeight: 500
     },
     // h4: {
     //     fontSize: '1rem',

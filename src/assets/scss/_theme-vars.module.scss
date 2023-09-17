@@ -9,11 +9,19 @@ $primary200: #909ab0;
 $primary800: #132145;
 
 // secondary
-$secondaryLight: #fde8ef;
-$secondaryMain: #ec407a;
-$secondaryDark: #ea3a72;
-$secondary200: #f6a0bd;
-$secondary800: #e42a5d;
+// $secondaryLight: #fde8ef;
+// $secondaryMain: #ec407a;
+// $secondaryDark: #ea3a72;
+// $secondary200: #f6a0bd;
+// $secondary800: #e42a5d;
+//dark text #1A71FF
+//dark bg #062141
+$secondaryLight: #d5e6fb;
+$secondaryMain: #0060ff;
+$secondaryDark: #062141;
+$secondary200: #1a71ff;
+$secondary300: #2f80ed33;
+$secondary800: #3380ff;
 
 // success Colors
 $successLight: #e3f8e8;
@@ -65,11 +73,12 @@ $darkPrimary200: #b0b6c4;
 $darkPrimary800: #44506b;
 
 // secondary dark
-$darkSecondaryLight: #fde8ef;
-$darkSecondaryMain: #ec407a;
-$darkSecondaryDark: #ea3a72;
-$darkSecondary200: #f6a0bd;
-$darkSecondary800: #e42a5d;
+$darkSecondaryLight: #062141;
+$darkSecondaryMain: #1a71ff;
+$darkSecondaryDark: #0060ff;
+$darkSecondary200: #d5e6fb;
+$darkSecondary300: #2f80ed33;
+$darkSecondary800: #3380ff;
 
 // text variants
 $darkTextTitle: #e4e8f7;

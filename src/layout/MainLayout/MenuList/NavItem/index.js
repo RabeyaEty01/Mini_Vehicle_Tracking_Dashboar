@@ -86,26 +86,35 @@ const NavItem = ({ item, level, parentId }) => {
                         borderRadius: `${borderRadius}px`,
                         mb: 1.25,
                         pl: drawerOpen ? `${level * 24}px` : 1.25,
-                        ...(drawerOpen &&
-                            level === 1 &&
-                            theme.palette.mode !== 'dark' && {
-                                '&:hover': {
-                                    background: theme.palette.secondary.light,
-                                    '& .MuiListItemIcon-root': {
-                                        '& svg': {
-                                            color: `${theme.palette.secondary.main} !important`
-                                        }
-                                    }
-                                },
-                                '&.Mui-selected': {
-                                    background: theme.palette.secondary.light,
-                                    color: iconSelectedColor,
-                                    '&:hover': {
-                                        color: iconSelectedColor,
-                                        background: theme.palette.secondary.light
-                                    }
-                                }
-                            }),
+                        ...(drawerOpen && level === 1 && theme.palette.mode !== 'dark'
+                            ? {
+                                  '&:hover': {
+                                      color: iconSelectedColor,
+                                      background: theme.palette.secondary.light,
+                                      '& .MuiListItemIcon-root': {
+                                          '& svg': {
+                                              color: `${theme.palette.secondary.main} !important`
+                                          }
+                                      }
+                                  },
+                                  '&.Mui-selected': {
+                                      background: theme.palette.secondary.light,
+                                      color: iconSelectedColor,
+                                      '&:hover': {
+                                          color: iconSelectedColor,
+                                          background: theme.palette.secondary.light
+                                      }
+                                  }
+                              }
+                            : {
+                                  '&:hover': {
+                                      '& .MuiListItemIcon-root': {
+                                          '& svg': {
+                                              color: `${theme.palette.secondary.main} !important`
+                                          }
+                                      }
+                                  }
+                              }),
                         ...((!drawerOpen || level !== 1) && {
                             py: level === 1 ? 0 : 1,
                             '&:hover': {
@@ -159,7 +168,7 @@ const NavItem = ({ item, level, parentId }) => {
                     {(drawerOpen || (!drawerOpen && level !== 1)) && (
                         <ListItemText
                             primary={
-                                <Typography variant={isSelected ? 'h4' : 'body1'} color="inherit">
+                                <Typography variant={'h4'} color="inherit">
                                     {item.title}
                                 </Typography>
                             }

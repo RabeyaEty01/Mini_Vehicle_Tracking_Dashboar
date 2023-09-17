@@ -1,11 +1,11 @@
 // third-party
 
 // assets
-import { CandlestickChart, Settings } from '@mui/icons-material';
-import { IconArrowsExchange, IconLayoutDashboard, IconUser } from '@tabler/icons';
+import { CandlestickChart, Dashboard, Settings } from '@mui/icons-material';
+import { IconArrowsExchange, IconUser } from '@tabler/icons';
 
 const icons = {
-    IconLayoutDashboard,
+    Dashboard,
     CandlestickChart,
     Settings,
     IconUser,
@@ -17,7 +17,7 @@ const icons = {
 const dashboard = {
     id: 'dashboard',
     title: 'Dashboard',
-    icon: icons.IconLayoutDashboard,
+    icon: icons.Dashboard,
     type: 'group',
     children: [
         {
@@ -25,7 +25,7 @@ const dashboard = {
             title: 'Dashboard',
             type: 'item',
             url: '/',
-            icon: icons.IconLayoutDashboard
+            icon: icons.Dashboard
         },
         {
             id: 'markets',
