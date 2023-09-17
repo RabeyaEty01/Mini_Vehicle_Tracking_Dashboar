@@ -28,32 +28,11 @@ const dashboard = {
             icon: icons.Dashboard
         },
         {
-            id: 'markets',
-            title: 'Markets',
+            id: 'vehicle-list',
+            title: 'Vehicle List',
             type: 'item',
-            url: '#markets',
+            url: '/dashboard/vehicle-list',
             icon: icons.CandlestickChart
-        },
-        {
-            id: 'transaction',
-            title: 'Transactions',
-            type: 'item',
-            url: '#trasaction',
-            icon: icons.IconArrowsExchange
-        },
-        {
-            id: 'profile',
-            title: 'Profile',
-            type: 'item',
-            url: '#profile',
-            icon: icons.IconUser
-        },
-        {
-            id: 'setting',
-            title: 'Settings',
-            type: 'item',
-            url: '#settings',
-            icon: icons.Settings
         }
     ]
 };

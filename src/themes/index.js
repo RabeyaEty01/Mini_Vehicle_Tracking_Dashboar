@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 // material-ui
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 // project import
 import useConfig from 'hooks/useConfig';
@@ -14,9 +14,9 @@ import componentStyleOverrides from './compStyleOverride';
 import customShadows from './shadows';
 
 export default function ThemeCustomization({ children }) {
-    const { borderRadius, fontFamily, navType, outlinedFilled, presetColor, rtlLayout } = useConfig();
+    const { borderRadius, fontFamily, navType, outlinedFilled } = useConfig();
 
-    const theme = useMemo(() => Palette(navType, presetColor), [navType, presetColor]);
+    const theme = useMemo(() => Palette(navType), [navType]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const themeTypography = useMemo(() => Typography(theme, borderRadius, fontFamily), [theme, borderRadius, fontFamily]);
@@ -24,7 +24,6 @@ export default function ThemeCustomization({ children }) {
 
     const themeOptions = useMemo(
         () => ({
-            direction: rtlLayout ? 'rtl' : 'ltr',
             palette: theme.palette,
             mixins: {
                 toolbar: {
@@ -38,7 +37,7 @@ export default function ThemeCustomization({ children }) {
             typography: themeTypography,
             customShadows: themeCustomShadows
         }),
-        [rtlLayout, theme, themeCustomShadows, themeTypography]
+        [theme, themeCustomShadows, themeTypography]
     );
 
     const themes = createTheme(themeOptions);

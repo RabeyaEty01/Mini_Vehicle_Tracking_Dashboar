@@ -31,10 +31,7 @@ function ConfigProvider({ children }) {
         fontFamily: initialState.fontFamily,
         borderRadius: initialState.borderRadius,
         outlinedFilled: initialState.outlinedFilled,
-        navType: initialState.navType,
-        presetColor: initialState.presetColor,
-        locale: initialState.locale,
-        rtlLayout: initialState.rtlLayout
+        navType: initialState.navType
     });
 
     const onChangeLayout = (layout) => {
@@ -58,45 +55,10 @@ function ConfigProvider({ children }) {
         });
     };
 
-    const onChangePresetColor = (presetColor) => {
-        setConfig({
-            ...config,
-            presetColor
-        });
-    };
-
-    const onChangeLocale = (locale) => {
-        setConfig({
-            ...config,
-            locale
-        });
-    };
-
-    const onChangeRTL = (rtlLayout) => {
-        setConfig({
-            ...config,
-            rtlLayout
-        });
-    };
-
     const onChangeContainer = () => {
         setConfig({
             ...config,
             container: !config.container
-        });
-    };
-
-    const onChangeFontFamily = (fontFamily) => {
-        setConfig({
-            ...config,
-            fontFamily
-        });
-    };
-
-    const onChangeBorderRadius = (event, newValue) => {
-        setConfig({
-            ...config,
-            borderRadius: newValue
         });
     };
 
@@ -114,12 +76,7 @@ function ConfigProvider({ children }) {
                 onChangeLayout,
                 onChangeDrawer,
                 onChangeMenuType,
-                onChangePresetColor,
-                onChangeLocale,
-                onChangeRTL,
                 onChangeContainer,
-                onChangeFontFamily,
-                onChangeBorderRadius,
                 onChangeOutlinedField
             }}
         >
@@ -132,4 +89,4 @@ ConfigProvider.propTypes = {
     children: PropTypes.node
 };
 
-export { ConfigProvider, ConfigContext };
+export { ConfigContext, ConfigProvider };

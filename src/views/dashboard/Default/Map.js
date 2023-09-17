@@ -30,7 +30,7 @@ const Map = ({ initialVehicles }) => {
     return (
         <div style={{ height: '100vh', width: '100%' }}>
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyC_BbO07oKPwPwkaClBRCKJV3zAKf2XBZk' }}
+                bootstrapURLKeys={{ key: process.env.REACT_APP_CLUSTER_MARKER_MAP_KEY }}
                 defaultCenter={{ lat: vehicles[0]?.lat, lng: vehicles[0]?.lng }}
                 defaultZoom={12}
             >
