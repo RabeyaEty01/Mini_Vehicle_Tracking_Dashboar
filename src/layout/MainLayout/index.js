@@ -8,13 +8,13 @@ import { styled, useTheme } from '@mui/material/styles';
 // project imports
 import LAYOUT_CONST from 'constant';
 import useConfig from 'hooks/useConfig';
-
 import { useDispatch, useSelector } from 'store';
 import { drawerWidth } from 'store/constant';
 import { openDrawer } from 'store/slices/menu';
-
 import Header from './Header';
 import Sidebar from './Sidebar';
+
+// assets
 
 // styles
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open, layout }) => ({
@@ -117,22 +117,22 @@ const MainLayout = () => {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <Box>
-                {/* header */}
-                <AppBar
-                    position="fixed"
-                    elevation={0}
-                    sx={{
-                        bgcolor: 'background.default',
-                        transition: drawerOpen ? theme.transitions.create('width') : 'none'
-                    }}
-                >
-                    {header}
-                </AppBar>
 
-                {/* drawer */}
-                {(layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd) && <Sidebar />}
-            </Box>
+            {/* header */}
+            <AppBar
+                position="fixed"
+                elevation={0}
+                sx={{
+                    bgcolor: 'background.default',
+                    transition: drawerOpen ? theme.transitions.create('width') : 'none'
+                }}
+            >
+                {header}
+            </AppBar>
+
+            {/* drawer */}
+            {(layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd) && <Sidebar />}
+
             {/* main content */}
             <Main theme={theme} open={drawerOpen} layout={layout}>
                 <Container maxWidth={container ? 'lg' : false} {...(!container && { sx: { px: { xs: 0 } } })}>

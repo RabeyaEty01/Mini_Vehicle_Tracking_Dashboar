@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 // project imports
 import LAYOUT_CONST from 'constant';
 import useConfig from 'hooks/useConfig';
+import LogoSection from '../LogoSection';
 import NotificationSection from './NotificationSection';
 import ProfileSection from './ProfileSection';
 import SearchSection from './SearchSection';
@@ -15,7 +16,6 @@ import { openDrawer } from 'store/slices/menu';
 // assets
 import { IconMenu2 } from '@tabler/icons';
 import { drawerWidth } from 'store/constant';
-import LogoSection from '../LogoSection';
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -34,7 +34,6 @@ const Header = () => {
             <Box
                 sx={{
                     width: `calc(${drawerWidth}px - 32px)`,
-
                     display: 'flex',
                     [theme.breakpoints.down('md')]: {
                         width: 'auto'
@@ -45,7 +44,7 @@ const Header = () => {
                     <LogoSection />
                 </Box>
 
-                {layout === LAYOUT_CONST.VERTICAL_LAYOUT && matchDownMd ? (
+                {layout === LAYOUT_CONST.VERTICAL_LAYOUT || matchDownMd ? (
                     <Avatar
                         variant="rounded"
                         sx={{

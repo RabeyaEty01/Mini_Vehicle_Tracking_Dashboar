@@ -1,5 +1,4 @@
-# Happi Admin Panel
-
+# Mini Vehicle Tracking Dashboard
 
 ### Project Requirements
 
@@ -15,7 +14,7 @@
 Clone this repository using this command
 
 ```sh
-git clone git@gitlab.com:rabeyaety01/erp-master.git
+git clone https://github.com/RabeyaEty01/Mini_Vehicle_Tracking_Dashboar.git
 ```
 
 ### Step 2

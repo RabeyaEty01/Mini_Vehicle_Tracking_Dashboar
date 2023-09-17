@@ -13,7 +13,7 @@ const reducer = combineReducers({
         {
             key: 'menu',
             storage,
-            keyPrefix: 'erppro-'
+            keyPrefix: 'mini-vehicle-tracking-dashboard-'
         },
         menuReducer
     )

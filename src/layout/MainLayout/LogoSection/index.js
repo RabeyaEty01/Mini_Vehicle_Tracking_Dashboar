@@ -10,7 +10,7 @@ import Logo from 'ui-component/Logo';
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = () => (
-    <Link component={RouterLink} to={DASHBOARD_PATH} style={{ textDecoration: 'none' }} aria-label="erppro logo">
+    <Link component={RouterLink} to={DASHBOARD_PATH} style={{ textDecoration: 'none' }} aria-label="logo">
         <Logo />
     </Link>
 );
