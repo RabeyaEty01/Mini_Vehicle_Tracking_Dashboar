@@ -14,7 +14,7 @@
 Clone this repository using this command
 
 ```sh
-git clone https://github.com/RabeyaEty01/Mini_Vehicle_Tracking_Dashboar.git
+git clone https://github.com/RabeyaEty01/Mini_Vehicle_Tracking_Dashboard
 ```
 
 ### Step 2

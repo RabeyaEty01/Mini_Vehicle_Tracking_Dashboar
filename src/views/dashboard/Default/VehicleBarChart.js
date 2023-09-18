@@ -1,8 +1,8 @@
 // DistanceChart.js
-import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import SkeletonVehicleBarChartCard from 'ui-component/cards/Skeleton/VehicleBarChartCard';
 
-const VehicleBarChart = ({ vehicles }) => {
+const VehicleBarChart = ({ vehicles, isLoading }) => {
     const chartData = {
         options: {
             chart: {
@@ -35,8 +35,12 @@ const VehicleBarChart = ({ vehicles }) => {
     };
 
     return (
-        <div className="distance-chart">
-            <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={500} />
+        <div>
+            {isLoading ? (
+                <SkeletonVehicleBarChartCard />
+            ) : (
+                <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={500} />
+            )}
         </div>
     );
 };

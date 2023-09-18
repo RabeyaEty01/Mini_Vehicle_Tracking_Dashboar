@@ -5,7 +5,7 @@ import { Box, Chip } from '@mui/material';
 import MaterialTable from 'material-table';
 import { useState } from 'react';
 
-const VehicleList = ({ vehicles }) => {
+const VehicleList = ({ vehicles, isLoading }) => {
     const tableRef = React.useRef(null);
     const [pageSize, setPageSize] = useState(5);
 
@@ -51,6 +51,7 @@ const VehicleList = ({ vehicles }) => {
                 style={{ boxShadow: 'none' }}
                 columns={columns}
                 data={vehicles}
+                isLoading={isLoading}
                 title="Vehicle List"
                 options={{
                     pageSize: pageSize,

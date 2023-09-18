@@ -11,7 +11,7 @@ const MapCard = () => (
                 <Grid item>
                     <Grid container justifyContent="space-between">
                         <Grid item>
-                            <Skeleton variant="rectangular" width={'100%'} height={600} />
+                            <Skeleton variant="rectangular" width={'100%'} height={500} />
                         </Grid>
                     </Grid>
                 </Grid>

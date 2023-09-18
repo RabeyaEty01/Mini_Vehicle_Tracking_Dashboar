@@ -1,7 +1,7 @@
 import { LocationOn } from '@mui/icons-material';
 import { Box, Button } from '@mui/material';
 import GoogleMapReact from 'google-map-react';
-
+import SkeletonMapCard from 'ui-component/cards/Skeleton/MapCard';
 const AnyReactComponent = ({ text, status }) => (
     <Box style={{ color: 'red' }}>
         <Box sx={{ mb: 1 }}>
@@ -19,19 +19,31 @@ const AnyReactComponent = ({ text, status }) => (
     </Box>
 );
 
-const Map = ({ vehicles }) => {
+const Map = ({ vehicles, isLoading }) => {
     return (
-        <div style={{ height: '600px', width: '100%' }}>
-            <GoogleMapReact
-                bootstrapURLKeys={{ key: process.env.REACT_APP_CLUSTER_MARKER_MAP_KEY }}
-                defaultCenter={{ lat: vehicles[0]?.lat, lng: vehicles[0]?.lng }}
-                defaultZoom={12}
-            >
-                {vehicles.map((vehicle) => (
-                    <AnyReactComponent key={vehicle.id} lat={vehicle.lat} lng={vehicle.lng} text={vehicle.name} status={vehicle.status} />
-                ))}
-            </GoogleMapReact>
-        </div>
+        <>
+            {isLoading ? (
+                <SkeletonMapCard />
+            ) : (
+                <div style={{ height: '500px', width: '100%' }}>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: process.env.REACT_APP_CLUSTER_MARKER_MAP_KEY }}
+                        defaultCenter={{ lat: vehicles[0]?.lat, lng: vehicles[0]?.lng }}
+                        defaultZoom={12}
+                    >
+                        {vehicles.map((vehicle) => (
+                            <AnyReactComponent
+                                key={vehicle.id}
+                                lat={vehicle.lat}
+                                lng={vehicle.lng}
+                                text={vehicle.name}
+                                status={vehicle.status}
+                            />
+                        ))}
+                    </GoogleMapReact>
+                </div>
+            )}
+        </>
     );
 };
 
