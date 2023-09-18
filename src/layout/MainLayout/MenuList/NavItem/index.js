@@ -31,7 +31,11 @@ const NavItem = ({ item, level, parentId }) => {
 
     const Icon = item?.icon;
     const itemIcon = item?.icon ? (
-        <Icon stroke={2} size="20px" style={{ color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary }} />
+        <Icon
+            stroke={1.5}
+            size={drawerOpen ? '20px' : '24px'}
+            style={{ color: isSelected ? theme.palette.secondary.main : theme.palette.text.primary }}
+        />
     ) : (
         <FiberManualRecordIcon
             sx={{
@@ -84,7 +88,7 @@ const NavItem = ({ item, level, parentId }) => {
                     sx={{
                         zIndex: 1201,
                         borderRadius: `${borderRadius}px`,
-                        mb: 1.25,
+                        mb: 0.5,
                         pl: drawerOpen ? `${level * 24}px` : 1.25,
                         ...(drawerOpen && level === 1 && theme.palette.mode !== 'dark'
                             ? {
@@ -139,13 +143,13 @@ const NavItem = ({ item, level, parentId }) => {
                     <ButtonBase sx={{ borderRadius: `${borderRadius}px` }} disableRipple={drawerOpen} aria-label="pages icon">
                         <ListItemIcon
                             sx={{
-                                minWidth: level === 1 ? 28.14 : 20,
+                                minWidth: level === 1 ? 36 : 18,
                                 color: isSelected ? iconSelectedColor : textColor,
                                 ...(!drawerOpen &&
                                     level === 1 && {
                                         borderRadius: `${borderRadius}px`,
-                                        width: 34,
-                                        height: 34,
+                                        width: 46,
+                                        height: 46,
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         '&:hover': {

@@ -11,12 +11,7 @@ const initialState = {
     onChangeLayout: () => {},
     onChangeDrawer: () => {},
     onChangeMenuType: () => {},
-    onChangePresetColor: () => {},
-    onChangeLocale: () => {},
-    onChangeRTL: () => {},
     onChangeContainer: () => {},
-    onChangeFontFamily: () => {},
-    onChangeBorderRadius: () => {},
     onChangeOutlinedField: () => {}
 };
 

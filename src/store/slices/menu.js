@@ -46,14 +46,3 @@ const menu = createSlice({
 export default menu.reducer;
 
 export const { activeItem, openDrawer, activeID } = menu.actions;
-
-export function getMenu() {
-    return async () => {
-        try {
-            const response = await axios.get('/api/menu/widget');
-            dispatch(menu.actions.getMenuSuccess(response.data.widget));
-        } catch (error) {
-            dispatch(menu.actions.hasError(error));
-        }
-    };
-}

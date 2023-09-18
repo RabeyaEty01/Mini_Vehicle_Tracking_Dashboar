@@ -351,7 +351,6 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
             styleOverrides: {
                 root: {
                     '& .MuiTableCell-head': {
-                        textTransform: 'uppercase',
                         textWrap: 'nowrap'
                     }
                 }

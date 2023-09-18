@@ -1,16 +1,17 @@
 // assets
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import { IconHelp } from '@tabler/icons';
+import { Logout, HelpOutline } from '@mui/icons-material';
+
 // constant
 const icons = {
-    IconHelp,
-    LogoutOutlinedIcon
+    Logout,
+    HelpOutline
 };
 
 // ==============================|| SUPPORT MENU ITEMS ||============================== //
 
 const support = {
     id: 'support',
+    title: 'Support',
     icon: icons.IconMenu,
     type: 'group',
     children: [
@@ -19,14 +20,14 @@ const support = {
             title: 'Help',
             type: 'item',
             url: '#',
-            icon: icons.IconHelp
+            icon: icons.HelpOutline
         },
         {
             id: 'log-out',
             title: 'Log Out',
             type: 'item',
             url: '#',
-            icon: icons.LogoutOutlinedIcon
+            icon: icons.Logout
         }
     ]
 };

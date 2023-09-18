@@ -172,7 +172,7 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId }) => {
                             currentItem.title &&
                             drawerOpen && (
                                 <Typography variant="caption" sx={{ ...theme.typography.menuCaption }} display="block" gutterBottom>
-                                    {/* {currentItem.title} */}
+                                    {currentItem.title}
                                     {currentItem.caption && (
                                         <Typography
                                             variant="caption"

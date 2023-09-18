@@ -11,11 +11,10 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import MainCard from 'ui-component/cards/MainCard';
 import Transitions from 'ui-component/extended/Transitions';
 
-import User1 from 'assets/images/users/user-round.svg';
+import User1 from 'assets/images/user-round.svg';
 
 // assets
 import { IconDotsVertical } from '@tabler/icons';
-import useConfig from 'hooks/useConfig';
 import Layout from 'layout/Customization/Layout';
 import { gridSpacing } from 'store/constant';
 
@@ -23,18 +22,10 @@ import { gridSpacing } from 'store/constant';
 
 const ProfileSection = () => {
     const theme = useTheme();
-    const { borderRadius } = useConfig();
-
-    const [value, setValue] = useState('');
-
-    const [selectedIndex, setSelectedIndex] = useState(-1);
 
     const [open, setOpen] = useState(false);
 
     const anchorRef = useRef(null);
-    const handleLogout = async () => {
-        console.log('user clicked');
-    };
 
     const handleClose = (event) => {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
