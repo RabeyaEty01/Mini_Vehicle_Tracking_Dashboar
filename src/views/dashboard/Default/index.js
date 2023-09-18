@@ -5,9 +5,9 @@ import { Grid } from '@mui/material';
 import initialVehicles from 'MocData/data';
 import { gridSpacing } from 'store/constant';
 import Map from './Map';
-import VehicleListMain from '../VehicleList';
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import VehicleList from './VehicleList';
 const socket = io('http://localhost:4000'); // Replace with your server URL
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
                 chart
             </Grid>
             <Grid item xs={6}>
-                <VehicleListMain vehicles={vehicles} />
+                <VehicleList vehicles={vehicles} />
             </Grid>
         </Grid>
     );
