@@ -1,13 +1,22 @@
 import { LocationOn } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import GoogleMapReact from 'google-map-react';
-import { useEffect, useState } from 'react';
 
-
-const AnyReactComponent = ({ text }) => (
-    <div style={{ color: 'red' }}>
-        <Typography variant="h4">{text}</Typography> <LocationOn fontSize="large" />
-    </div>
+const AnyReactComponent = ({ text, status }) => (
+    <Box style={{ color: 'red' }}>
+        <Box sx={{ mb: 1 }}>
+            <Button
+                sx={{ textTransform: 'capitalize', borderRadius: '20px' }}
+                size="small"
+                color={status === 'moving' ? 'success' : 'warning'}
+                variant="contained"
+            >
+                {status}
+            </Button>
+            {/* <Typography variant="h5">{text}</Typography> */}
+        </Box>
+        <LocationOn fontSize="large" />
+    </Box>
 );
 
 const Map = ({ vehicles }) => {
@@ -19,7 +28,7 @@ const Map = ({ vehicles }) => {
                 defaultZoom={12}
             >
                 {vehicles.map((vehicle) => (
-                    <AnyReactComponent key={vehicle.id} lat={vehicle.lat} lng={vehicle.lng} text={vehicle.name} />
+                    <AnyReactComponent key={vehicle.id} lat={vehicle.lat} lng={vehicle.lng} text={vehicle.name} status={vehicle.status} />
                 ))}
             </GoogleMapReact>
         </div>

@@ -59,7 +59,9 @@ const VehicleList = ({ vehicles }) => {
                     showFirstLastPageButtons: false,
                     exportButton: true,
                     exportAllData: true,
+                    draggable: false,
                     filtering: true,
+                    sorting: false,
                     search: true
                 }}
             />
