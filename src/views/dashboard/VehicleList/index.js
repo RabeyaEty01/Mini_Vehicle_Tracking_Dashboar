@@ -7,12 +7,9 @@ import { useTheme } from '@mui/styles';
 import { IconFileExport } from '@tabler/icons';
 import MaterialTable from 'material-table';
 import { useState } from 'react';
-
-import initialVehicles from 'MocData/data';
 import MainCard from 'ui-component/cards/MainCard';
-// import Chip from 'ui-component/extended/Chip';
 
-const VehicleListMain = () => {
+const VehicleListMain = ({ vehicles }) => {
     const theme = useTheme();
     const tableRef = React.useRef(null);
     const [pageSize, setPageSize] = useState(10);
@@ -113,7 +110,7 @@ const VehicleListMain = () => {
                             }
                         }
                     }}
-                    data={initialVehicles}
+                    data={vehicles}
                     options={{
                         exportButton: true,
                         exportAllData: true,
