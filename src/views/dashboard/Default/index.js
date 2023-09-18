@@ -6,9 +6,12 @@ import initialVehicles from 'MocData/data';
 import { gridSpacing } from 'store/constant';
 import Map from './Map';
 import { useEffect, useState } from 'react';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import VehicleList from './VehicleList';
-const socket = io('http://localhost:4000'); // Replace with your server URL
+import DistanceChart from './Chart';
+
+// const socket = io('http://localhost:4000'); // Replace with your server URL
+
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
@@ -16,17 +19,17 @@ const Dashboard = () => {
 
     const simulateRealTimeUpdates = () => {
         setInterval(() => {
+            const currentTime = new Date().getTime();
+            //update vehicles over time
             const updatedVehicles = vehicles.map((vehicle) => {
-                // Simulate position updates
-                const newLat = vehicle.lat + (Math.random() - 0.5) * 0.1;
-                const newLng = vehicle.lng + (Math.random() - 0.5) * 0.1;
-                // Simulate status updates
-                const newStatus = Math.random() < 0.5 ? 'moving' : 'idle';
+                const distance = Math.floor(Math.random() * 1000); // Simulated distance data
+                const updatedDistanceCovered = [...vehicle.distanceCovered, { x: currentTime, y: distance }];
                 return {
                     ...vehicle,
-                    lat: newLat,
-                    lng: newLng,
-                    status: newStatus
+                    lat: vehicle.lat + (Math.random() - 0.5) * 0.1,
+                    lng: vehicle.lng + (Math.random() - 0.5) * 0.1,
+                    status: Math.random() < 0.5 ? 'moving' : 'idle',
+                    distanceCovered: updatedDistanceCovered
                 };
             });
 
@@ -38,25 +41,25 @@ const Dashboard = () => {
         //Simulate real-time updates using function
         simulateRealTimeUpdates();
 
-        // Simulate real-time updates using socket.io
-        socket.on('updateData', (data) => {
-            setVehicles(data);
-        });
+        // // Simulate real-time updates using socket.io
+        // socket.on('updateData', (data) => {
+        //     setVehicles(data);
+        // });
 
-        return () => {
-            // Clean up socket.io connection when component unmounts
-            socket.disconnect();
-        };
+        // return () => {
+        //     // Clean up socket.io connection when component unmounts
+        //     socket.disconnect();
+        // };
     }, []);
     return (
         <Grid container spacing={gridSpacing}>
-            <Grid item xs={12}>
+            <Grid item xs={12} md={12}>
                 <Map vehicles={vehicles} />
             </Grid>
-            <Grid item xs={6}>
-                chart
+            <Grid item xs={12} md={6}>
+                <DistanceChart vehicles={vehicles} />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <VehicleList vehicles={vehicles} />
             </Grid>
         </Grid>

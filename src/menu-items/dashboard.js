@@ -26,13 +26,6 @@ const dashboard = {
             type: 'item',
             url: '/',
             icon: icons.Dashboard
-        },
-        {
-            id: 'vehicle-list',
-            title: 'Vehicle List',
-            type: 'item',
-            url: '/dashboard/vehicle-list',
-            icon: icons.CandlestickChart
         }
     ]
 };

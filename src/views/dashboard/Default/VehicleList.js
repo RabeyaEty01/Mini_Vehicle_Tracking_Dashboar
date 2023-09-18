@@ -13,13 +13,13 @@ const VehicleList = ({ vehicles }) => {
         {
             title: 'Name',
             field: 'name',
-            filtering: false
+            searchable: false
         },
 
         {
             title: 'Status',
             field: 'status',
-            filtering: true,
+            searchable: true,
             render: (rowData) => (
                 <>
                     {rowData?.status === 'moving' ? (
@@ -60,7 +60,6 @@ const VehicleList = ({ vehicles }) => {
                     exportButton: true,
                     exportAllData: true,
                     draggable: false,
-                    filtering: true,
                     sorting: false,
                     search: true
                 }}
