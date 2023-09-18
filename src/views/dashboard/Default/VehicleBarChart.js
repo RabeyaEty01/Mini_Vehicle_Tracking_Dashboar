@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const DistanceChart = ({ vehicles }) => {
-    console.log('setVehicles', vehicles);
+const VehicleBarChart = ({ vehicles }) => {
     const chartData = {
         options: {
             chart: {
@@ -42,4 +41,4 @@ const DistanceChart = ({ vehicles }) => {
     );
 };
 
-export default DistanceChart;
+export default VehicleBarChart;

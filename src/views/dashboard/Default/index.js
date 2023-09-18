@@ -8,7 +8,7 @@ import Map from './Map';
 import { useEffect, useState } from 'react';
 // import io from 'socket.io-client';
 import VehicleList from './VehicleList';
-import DistanceChart from './Chart';
+import VehicleBarChart from './VehicleBarChart';
 
 // const socket = io('http://localhost:4000'); // Replace with your server URL
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
                 <Map vehicles={vehicles} />
             </Grid>
             <Grid item xs={12} md={6}>
-                <DistanceChart vehicles={vehicles} />
+                <VehicleBarChart vehicles={vehicles} />
             </Grid>
             <Grid item xs={12} md={6}>
                 <VehicleList vehicles={vehicles} />
